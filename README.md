@@ -54,3 +54,10 @@ If you know your production domain, update the canonical URL and social preview 
 - No backend or third-party JavaScript dependency is required, so this works on GitHub Pages.
 
 After replacing the published files in the repository, wait for the GitHub Pages workflow/build to complete and verify both `/` and `/freakynews.html`.
+
+## Android system bars and edge-to-edge appearance
+
+- The page sets `theme-color` early and updates it when the light/dark theme changes, so browsers and installed-PWA surfaces that support it can match the FN Squad background instead of showing a jarring white strip above a dark page.
+- The document background continues to the viewport edges, and existing safe-area-aware positioning protects fixed controls from cutouts and gesture areas.
+- A standard GitHub Pages website cannot force Android's status/navigation bars to become transparent or draw arbitrary page content behind them. Those decisions are controlled by Chrome/the installed web-app host and Android/MIUI/HyperOS. This package therefore provides a theme-matched edge blend; exact native-X-style system-bar behavior requires a native app or a host that explicitly exposes edge-to-edge support.
+- To test the closest website experience, add the site to the home screen and open the installed web app. Browser and OS versions may still render system bars differently.

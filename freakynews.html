@@ -3,7 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f6f5f2">
+  <meta name="theme-color" content="#f6f5f2" id="fn-theme-color">
+  <script>
+    /* Match supported Android/browser chrome to the active site theme as early as possible.
+       A website cannot force transparent OS bars; this prevents a jarring white/dark mismatch. */
+    (() => {
+      const root = document.documentElement;
+      let saved = null;
+      try { saved = localStorage.getItem('fn-theme'); } catch (_) {}
+      const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      root.dataset.theme = dark ? 'dark' : 'light';
+      const meta = document.getElementById('fn-theme-color');
+      if (meta) meta.setAttribute('content', dark ? '#171819' : '#f6f5f2');
+    })();
+  </script>
   <meta name="description" content="Explore the FreakyNews feed from FN Squad — news, internet culture, memes, and gaming, in a lightweight continuous timeline.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="FreakyNews Feed — FN Squad">

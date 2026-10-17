@@ -21,15 +21,23 @@
     try { return window.localStorage.getItem('fn-theme'); } catch (_) { return null; }
   })();
   if (savedTheme === 'dark' || savedTheme === 'light') root.dataset.theme = savedTheme;
+  const updateSystemThemeColor = () => {
+    const meta = document.getElementById('fn-theme-color');
+    if (!meta) return;
+    const isDark = root.dataset.theme === 'dark';
+    meta.setAttribute('content', isDark ? '#171819' : '#f6f5f2');
+  };
   const updateThemeControl = () => {
-    if (!themeButton) return;
-    const isDark = root.dataset.theme === 'dark' || (!root.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    themeButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-    themeButton.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    const isDark = root.dataset.theme === 'dark';
+    if (themeButton) {
+      themeButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeButton.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    updateSystemThemeColor();
   };
   updateThemeControl();
   themeButton?.addEventListener('click', () => {
-    const currentDark = root.dataset.theme === 'dark' || (!root.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const currentDark = root.dataset.theme === 'dark';
     const next = currentDark ? 'light' : 'dark';
     root.dataset.theme = next;
     try { window.localStorage.setItem('fn-theme', next); } catch (_) { /* Private browsing: theme still works for this page. */ }
