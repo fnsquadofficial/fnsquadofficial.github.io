@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="FN Squad — News, memes & the next adventure">
   <meta property="og:description" content="A little news. A lot of internet. Meet FreakyNews and FN SMP, together in one place.">
-  <meta property="og:image" content="assets/fn-squad-logo.webp"><!-- TODO: use an absolute URL once the domain is known -->
+  <meta property="og:image" content="assets/fn-squad-logo.webp">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/fn-icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/fn-icon-192.png">
@@ -33,6 +33,7 @@
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#worlds">The worlds</a>
         <a href="#freakynews">FreakyNews</a>
+        <a href="freakynews.html">Full feed</a>
         <a href="#smp">FN SMP</a>
         <a href="#about">About</a>
       </nav>
@@ -51,6 +52,7 @@
     <nav class="mobile-menu glass-surface" id="mobile-menu" aria-label="Mobile navigation" hidden>
       <a href="#worlds">The worlds <span>01</span></a>
       <a href="#freakynews">FreakyNews <span>02</span></a>
+      <a href="freakynews.html">Full feed <span>↗</span></a>
       <a href="#smp">FN SMP <span>03</span></a>
       <a href="#about">About <span>04</span></a>
     </nav>
@@ -128,7 +130,8 @@
           </div>
           <label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 4.3 4.3"/></svg><span class="visually-hidden">Search feed categories</span><input id="feed-search" type="search" placeholder="Find your topic…" autocomplete="off"></label>
         </div>
-        <div class="feed-grid" id="feed-grid">
+        <div class="feed-peek-viewport" id="feed-peek-viewport" aria-label="FreakyNews feed preview; more stories continue below">
+          <div class="feed-grid feed-preview-grid" id="feed-grid">
           <article class="feed-card feed-card-featured" data-category="news trending" data-search="headlines current affairs explainers news">
             <div class="feed-art art-editorial" aria-hidden="true"><span class="art-kicker">THE BIG PICTURE</span><span class="art-headline">Wait,<br>what<br>happened?</span><span class="art-orbit"></span><span class="art-edition">FN / 01</span></div>
             <div class="feed-card-copy"><div class="feed-meta"><span>NEWS DESK</span><span class="preview-tag">CONTENT SLOT</span></div><h3>The headlines, minus the overwhelm.</h3><p>A space for important stories, clear context, and updates worth knowing about. Connect a verified feed to publish real stories here.</p><div class="feed-card-bottom"><span class="category-pill">News & explainers</span><span class="arrow-circle" aria-hidden="true">↗</span></div></div>
@@ -145,8 +148,13 @@
             <div class="feed-art art-game" aria-hidden="true"><div class="game-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="game-word">PRESS<br>START</span><span class="game-badge">PLAYER 01</span></div>
             <div class="feed-card-copy"><div class="feed-meta"><span>PLAYER TWO</span><span class="preview-tag">CONTENT SLOT</span></div><h3>For the ones who live in-game.</h3><p>Gaming news, community moments, and the occasional reminder to touch grass.</p><div class="feed-card-bottom"><span class="category-pill">Gaming & community</span><span class="arrow-circle" aria-hidden="true">↗</span></div></div>
           </article>
+          </div>
         </div>
         <p class="feed-empty" id="feed-empty" hidden>No matching topics yet. Try another search or category.</p>
+        <div class="feed-preview-actions">
+          <span class="peek-hint"><span aria-hidden="true">↓</span> More stories continue in the full feed</span>
+          <a class="button button-dark" href="freakynews.html">Open the full feed <span aria-hidden="true">↗</span></a>
+        </div>
         <div class="feed-disclaimer"><span class="info-icon" aria-hidden="true">i</span><p>These are preview content blocks, not live headlines. Connect an official feed or publish verified posts before presenting this area as current news.</p></div>
       </div>
     </section>
@@ -197,8 +205,6 @@
         <details class="faq-item"><summary>What is FN Squad?</summary><p>FN Squad is the umbrella community connecting FreakyNews, the news-and-memes channel, and FN SMP, the Minecraft community.</p></details>
         <details class="faq-item"><summary>Where can I follow FreakyNews?</summary><p>The official WhatsApp channel link needs to be added by the site owner before this website can send you there. Use the connection button below once it has been configured.</p></details>
         <details class="faq-item"><summary>How do I join FN SMP?</summary><p>The official server address, edition, version, and rules should be published once confirmed. The site intentionally does not guess these details.</p></details>
-        <details class="faq-item"><summary>What are the FN SMP rules?</summary><p>1. No hacks, x-ray or exploits. Report bugs! 2. No griefing or stealing, even if unlocked. 3. PvP only with consent. 4. Respect claims and build 100+ blocks from others. 5. No offensive builds, signs or chat. 6. One main account; declare alts. 7. Staff decisions follow our strike system, and you can appeal in Discord within 14 days.</p></details>
-        <details class="faq-item"><summary>How are FreakyNews posts labelled?</summary><p>Posts are marked Confirmed, Reported, Rumour or Opinion, with a source and date. We verify before we post, credit creators and correct mistakes quickly.</p></details>
         <details class="faq-item"><summary>Does the feed show live news?</summary><p>Not yet. The cards above demonstrate the site's content layout. A verified content source or manual publishing workflow must be connected before they can represent current stories.</p></details>
       </div>
     </section>
@@ -214,8 +220,8 @@
 
   <footer class="site-footer section-wrap" id="footer">
     <a class="brand-lockup" href="#top" aria-label="FN Squad, back to top"><span class="brand-mark" aria-hidden="true">FN</span><span class="brand-name">FN <span>Squad</span></span></a>
-    <p>Made for the curious. Kept light on purpose. FN Squad is an independent community and is not affiliated with Mojang, Microsoft, Discord, Meta or any game studio.</p>
-    <div class="footer-links"><a href="#worlds">Worlds</a><a href="#freakynews">FreakyNews</a><a href="#smp">FN SMP</a><a href="#about">About</a></div>
+    <p>Made for the curious. Kept light on purpose.</p>
+    <div class="footer-links"><a href="#worlds">Worlds</a><a href="#freakynews">FreakyNews</a><a href="freakynews.html">Full feed</a><a href="#smp">FN SMP</a><a href="#about">About</a></div>
     <span class="copyright">© <span id="year">2026</span> FN Squad</span>
   </footer>
 

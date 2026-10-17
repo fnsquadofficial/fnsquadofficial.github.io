@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f5f2">
+  <meta name="description" content="Explore the FreakyNews feed from FN Squad — news, internet culture, memes, and gaming, in a lightweight continuous timeline.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FreakyNews Feed — FN Squad">
+  <meta property="og:description" content="A lightweight, continuously browsable feed for news, culture, memes, and gaming.">
+  <meta property="og:image" content="assets/fn-squad-logo.webp">
+  <link rel="icon" href="assets/fn-icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/fn-icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>FreakyNews Feed — FN Squad</title>
+  <script src="site-config.js"></script>
+  <script src="app.js" defer></script>
+  <script src="feed-data.js" defer></script>
+  <script src="feed.js" defer></script>
+</head>
+<body class="feed-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="nav-shell glass-surface">
+      <a class="brand-lockup" href="index.html#top" aria-label="FN Squad home">
+        <span class="brand-mark" aria-hidden="true">FN</span>
+        <span class="brand-name">FN <span>Squad</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html#worlds">The worlds</a>
+        <a href="index.html#freakynews">FreakyNews</a>
+        <a href="freakynews.html" class="is-current" aria-current="page">Full feed</a>
+        <a href="index.html#smp">FN SMP</a>
+        <a href="index.html#about">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.2 8.2 0 0 1 8.8 3.8 8.3 8.3 0 1 0 20.2 15.2Z"/></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+        <a class="button button-small button-dark nav-cta" href="index.html#connect">Find your corner <span aria-hidden="true">↗</span></a>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-menu glass-surface" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="index.html#worlds">The worlds <span>01</span></a>
+      <a href="index.html#freakynews">FreakyNews <span>02</span></a>
+      <a href="freakynews.html" aria-current="page">Full feed <span>↗</span></a>
+      <a href="index.html#smp">FN SMP <span>03</span></a>
+      <a href="index.html#about">About <span>04</span></a>
+    </nav>
+  </header>
+
+  <main id="main" class="feed-main section-wrap">
+    <section class="feed-hero" aria-labelledby="feed-page-title">
+      <div class="feed-hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> THE DAILY DETOUR · FN SQUAD</p>
+        <h1 id="feed-page-title">FreakyNews<span>.</span></h1>
+        <p class="feed-hero-lede">News, internet culture, memes, and gaming in a steady stream. Scroll naturally; the next stories arrive when you approach the end.</p>
+      </div>
+      <div class="feed-hero-note glass-surface">
+        <span class="hero-note-mark" aria-hidden="true">FN</span>
+        <div><strong>Scroll naturally.</strong><p>More entries appear as you approach the end. No nested scroll box, no autoplay, no heavy feed framework.</p></div>
+      </div>
+    </section>
+
+    <section class="stream-layout" id="feed" aria-label="FreakyNews timeline">
+      <div class="stream-column">
+        <div class="stream-heading-row">
+          <div><p class="micro-label">YOUR TIMELINE</p><h2>What's in the loop<span class="title-period">.</span></h2></div>
+          <span class="stream-state"><span class="status-orb" aria-hidden="true"></span> CONTINUOUS FEED</span>
+        </div>
+        <div class="feed-tools stream-tools">
+          <div class="filter-list" role="group" aria-label="Filter timeline categories">
+            <button class="filter-chip is-active" type="button" data-stream-filter="all" aria-pressed="true">Everything <span>12</span></button>
+            <button class="filter-chip" type="button" data-stream-filter="news" aria-pressed="false">News</button>
+            <button class="filter-chip" type="button" data-stream-filter="trending" aria-pressed="false">Trending</button>
+            <button class="filter-chip" type="button" data-stream-filter="memes" aria-pressed="false">Memes</button>
+            <button class="filter-chip" type="button" data-stream-filter="gaming" aria-pressed="false">Gaming</button>
+          </div>
+          <label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 4.3 4.3"/></svg><span class="visually-hidden">Search feed entries</span><input id="stream-search" type="search" placeholder="Find your topic…" autocomplete="off"></label>
+        </div>
+        <div class="stream-list" id="stream-list" aria-label="Feed entries"></div>
+        <noscript>
+          <div class="stream-list stream-static-fallback" aria-label="Static feed preview">
+            <article class="stream-card"><div class="stream-card-top"><span class="stream-avatar" aria-hidden="true">FN</span><div class="stream-author"><strong>FreakyNews</strong><span>FN Squad · DEMO</span></div><span class="preview-tag">CONTENT SLOT</span></div><div class="stream-card-body"><div class="stream-category">NEWS & CONTEXT</div><h3>The context behind the headline.</h3><p>A place for verified updates, clear context, and the details worth knowing. Replace this demonstration slot with a sourced story before publishing.</p></div><div class="stream-card-footer"><span class="stream-source">SOURCE NEEDED</span><span class="stream-count-index">01</span></div></article>
+            <article class="stream-card"><div class="stream-card-top"><span class="stream-avatar" aria-hidden="true">FN</span><div class="stream-author"><strong>FreakyNews</strong><span>FN Squad · DEMO</span></div><span class="preview-tag">CONTENT SLOT</span></div><div class="stream-card-body"><div class="stream-category">MEMES & CULTURE</div><h3>Today’s group-chat energy.</h3><p>A space for original memes and properly attributed internet culture. Replace this with the actual post and creator credit.</p></div><div class="stream-card-footer"><span class="stream-source">CREATOR CREDIT NEEDED</span><span class="stream-count-index">02</span></div></article>
+          </div>
+          <p class="stream-empty">These are sample content slots, not live posts. Enable JavaScript for filtering and progressive loading.</p>
+        </noscript>
+        <p class="stream-empty" id="stream-empty" hidden>No matching entries. Try another category or search.</p>
+        <div class="stream-loader" id="stream-loader" hidden><span class="loader-dot" aria-hidden="true"></span><span>Loading the next entries…</span></div>
+        <div class="stream-end" id="stream-end" hidden><span class="end-mark" aria-hidden="true">✳</span><strong>You're all caught up.</strong><p>The feed ends here until more verified posts are published.</p></div>
+        <div class="stream-sentinel" id="stream-sentinel" aria-hidden="true"></div>
+        <div class="stream-more-row"><button class="button button-dark" type="button" id="load-more">Load more stories <span aria-hidden="true">↓</span></button><p id="stream-count" class="stream-count" aria-live="polite">Showing preview entries</p></div>
+        <div class="feed-disclaimer"><span class="info-icon" aria-hidden="true">i</span><p>These entries are demonstration slots, not live news. Replace them with verified posts in <code>feed-data.js</code> before presenting them as current reporting.</p></div>
+      </div>
+      <aside class="stream-aside" aria-label="About the feed">
+        <div class="aside-glass glass-surface"><p class="eyebrow">A QUICK NOTE</p><h3>Less noise.<br>More context.</h3><p>FreakyNews brings news, trending topics, gaming, and internet culture into one place. The feed is designed to feel familiar on mobile while staying lightweight.</p><a class="underlined-link" href="index.html#freakynews">Back to the FN Squad homepage <span aria-hidden="true">↗</span></a></div>
+        <div class="aside-mini"><span class="aside-mini-icon" aria-hidden="true">✳</span><div><strong>Made to keep scrolling.</strong><p>Each batch is added only when needed, with a manual fallback when automatic loading is unavailable.</p></div></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer section-wrap" id="footer">
+    <a class="brand-lockup" href="index.html#top" aria-label="FN Squad, back to top"><span class="brand-mark" aria-hidden="true">FN</span><span class="brand-name">FN <span>Squad</span></span></a>
+    <p>Made for the curious. Kept light on purpose.</p>
+    <div class="footer-links"><a href="index.html#worlds">Worlds</a><a href="index.html#freakynews">FreakyNews</a><a href="freakynews.html" aria-current="page">Full feed</a><a href="index.html#smp">FN SMP</a><a href="index.html#about">About</a></div>
+    <span class="copyright">© <span id="year">2026</span> FN Squad</span>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>

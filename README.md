@@ -46,6 +46,11 @@ If you know your production domain, update the canonical URL and social preview 
 - Google, Core Web Vitals: https://web.dev/articles/vitals
 - W3C, WCAG 2.2: https://www.w3.org/TR/WCAG22/
 
-## Hosting on GitHub Pages
-Push to `main`, then in the repository go to Settings > Pages and set Source to "GitHub Actions". The included workflow publishes the site. Logo and icons live in `assets/`.
-After the domain is known, make the Open Graph image URL absolute, add a canonical link and a sitemap.
+## Continuous FreakyNews feed
+
+- `index.html` includes a deliberately clipped feed preview with a soft bottom fade and a partially visible next card as a scroll cue.
+- `freakynews.html` contains the full, vertically continuous feed. It progressively appends entries in batches using `IntersectionObserver` and includes a keyboard-accessible **Load more stories** button.
+- `feed-data.js` is the static content source. Its entries are marked as demonstrations and are not live headlines. Replace them with verified posts before publishing as current news. The feed loads only the records available in this file; it does not invent an endless stream or scrape WhatsApp.
+- No backend or third-party JavaScript dependency is required, so this works on GitHub Pages.
+
+After replacing the published files in the repository, wait for the GitHub Pages workflow/build to complete and verify both `/` and `/freakynews.html`.
