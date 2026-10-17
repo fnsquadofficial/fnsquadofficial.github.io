@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f5f2">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="FN Squad brings FreakyNews and FN SMP together — news, memes, gaming, and community in one calm, fast home on the internet.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FN Squad — News, memes & the next adventure">
+  <meta property="og:description" content="A little news. A lot of internet. Meet FreakyNews and FN SMP, together in one place.">
+  <meta property="og:image" content="assets/fn-squad-logo.webp"><!-- TODO: use an absolute URL once the domain is known -->
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/fn-icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/fn-icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>FN Squad — News, memes & the next adventure</title>
+  <script src="site-config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="nav-shell glass-surface">
+      <a class="brand-lockup" href="#top" aria-label="FN Squad home">
+        <span class="brand-mark" aria-hidden="true">FN</span>
+        <span class="brand-name">FN <span>Squad</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#worlds">The worlds</a>
+        <a href="#freakynews">FreakyNews</a>
+        <a href="#smp">FN SMP</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.2 8.2 0 0 1 8.8 3.8 8.3 8.3 0 1 0 20.2 15.2Z"/></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+        <a class="button button-small button-dark nav-cta" href="#connect">Find your corner <span aria-hidden="true">↗</span></a>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-menu glass-surface" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="#worlds">The worlds <span>01</span></a>
+      <a href="#freakynews">FreakyNews <span>02</span></a>
+      <a href="#smp">FN SMP <span>03</span></a>
+      <a href="#about">About <span>04</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> ONE SQUAD. MORE THAN ONE WORLD.</div>
+        <h1 id="hero-title">A little news.<br><span>A lot of internet.</span></h1>
+        <p class="hero-lede">Your home for the headlines, the memes, and the block-built adventures worth talking about. Welcome to FN Squad.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#worlds">Explore the squad <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#about">Get to know us <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-note"><span class="note-line"></span><span>Made for the curious. Designed to stay light.</span></div>
+      </div>
+      <div class="hero-visual" aria-label="FN Squad brand artwork">
+        <div class="visual-orbit orbit-a" aria-hidden="true"></div>
+        <div class="visual-orbit orbit-b" aria-hidden="true"></div>
+        <div class="hero-image-frame">
+          <img src="assets/fn-squad-logo.webp" width="1024" height="1024" alt="FN Squad monogram on a soft pearl-white abstract background" fetchpriority="high" decoding="async">
+        </div>
+        <div class="floating-label label-top glass-surface"><span class="live-dot"></span><span>YOUR INTERNET CORNER</span></div>
+        <div class="floating-label label-bottom glass-surface"><span class="mini-fn">FN</span><span><strong>One squad</strong><small>Two different worlds</small></span><span class="label-arrow" aria-hidden="true">↗</span></div>
+        <span class="visual-index" aria-hidden="true">EST. FOR THE INTERNET</span>
+      </div>
+    </section>
+
+    <section class="ticker-section" aria-label="What FN Squad brings together">
+      <div class="ticker-inner">
+        <span>THE HEADLINES</span><i aria-hidden="true">✳</i><span>THE MEMES</span><i aria-hidden="true">✳</i><span>THE BLOCKS</span><i aria-hidden="true">✳</i><span>THE COMMUNITY</span><i aria-hidden="true">✳</i><span>THE HEADLINES</span>
+      </div>
+    </section>
+
+    <section class="worlds section-wrap section-space" id="worlds" aria-labelledby="worlds-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">PICK YOUR PORTAL</p><h2 id="worlds-title">Two worlds.<br><span>Same squad.</span></h2></div>
+        <p class="section-intro">Whether you're here to stay in the loop or log into a new adventure, there's a place for you.</p>
+      </div>
+      <div class="world-grid">
+        <article class="world-card news-world">
+          <div class="world-card-top"><span class="world-number">01 / CULTURE & CURRENT</span><span class="round-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h14A1.5 1.5 0 0 1 20.5 6v12a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 18V6A1.5 1.5 0 0 1 5 4.5Z"/><path d="M7 8h10M7 12h6M7 16h8"/></svg></span></div>
+          <div class="world-illustration news-illustration" aria-hidden="true"><span class="paper paper-one"></span><span class="paper paper-two"></span><span class="paper paper-three"></span><span class="asterisk">✳</span></div>
+          <div class="world-card-copy"><p class="micro-label">FREAKYNEWS · WHATSAPP</p><h3>Stay in the loop.<br>Keep your sense of humor.</h3><p>News, trending stories, internet culture, and memes — the big stuff and the wonderfully weird stuff.</p><a class="button button-light" href="#freakynews">Explore FreakyNews <span aria-hidden="true">↗</span></a></div>
+          <span class="card-grain" aria-hidden="true"></span>
+        </article>
+        <article class="world-card smp-world">
+          <div class="world-card-top"><span class="world-number">02 / BUILD & BELONG</span><span class="round-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8.5 4.7v8.6L12 21l-8.5-4.7V7.7L12 3Z"/><path d="m3.8 7.8 8.2 4.7 8.2-4.7M12 12.5V21"/></svg></span></div>
+          <div class="world-illustration block-illustration" aria-hidden="true"><span class="mc-block block-back"></span><span class="mc-block block-mid"></span><span class="mc-block block-front"></span><span class="block-spark spark-a">✦</span><span class="block-spark spark-b">+</span></div>
+          <div class="world-card-copy"><p class="micro-label">FN SMP · MINECRAFT</p><h3>Less scrolling.<br>More spawning.</h3><p>A community-built Minecraft world for exploring, creating, surviving, and making your own stories.</p><a class="button button-light" href="#smp">Enter FN SMP <span aria-hidden="true">↗</span></a></div>
+          <span class="card-grain" aria-hidden="true"></span>
+        </article>
+      </div>
+    </section>
+
+    <section class="freaky-section section-space" id="freakynews" aria-labelledby="freaky-title">
+      <div class="section-wrap">
+        <div class="section-heading section-heading-news">
+          <div><p class="eyebrow"><span class="eyebrow-dot"></span> THE DAILY DETOUR</p><h2 id="freaky-title">FreakyNews<span class="title-period">.</span></h2></div>
+          <div class="news-head-copy"><p class="section-intro">The world moves fast. Your feed should make it easier to catch up — and leave room for a laugh.</p><a class="underlined-link" href="#connect" data-connect="whatsapp">Find us on WhatsApp <span aria-hidden="true">↗</span></a></div>
+        </div>
+
+        <div class="feed-topline">
+          <div><span class="status-orb" aria-hidden="true"></span><span>THE FEED, YOUR WAY</span></div>
+          <span class="feed-note">A home for stories, not noise.</span>
+        </div>
+        <div class="feed-tools">
+          <div class="filter-list" role="group" aria-label="Filter content categories">
+            <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">Everything <span>04</span></button>
+            <button class="filter-chip" type="button" data-filter="news" aria-pressed="false">News</button>
+            <button class="filter-chip" type="button" data-filter="trending" aria-pressed="false">Trending</button>
+            <button class="filter-chip" type="button" data-filter="memes" aria-pressed="false">Memes</button>
+            <button class="filter-chip" type="button" data-filter="gaming" aria-pressed="false">Gaming</button>
+          </div>
+          <label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 4.3 4.3"/></svg><span class="visually-hidden">Search feed categories</span><input id="feed-search" type="search" placeholder="Find your topic…" autocomplete="off"></label>
+        </div>
+        <div class="feed-grid" id="feed-grid">
+          <article class="feed-card feed-card-featured" data-category="news trending" data-search="headlines current affairs explainers news">
+            <div class="feed-art art-editorial" aria-hidden="true"><span class="art-kicker">THE BIG PICTURE</span><span class="art-headline">Wait,<br>what<br>happened?</span><span class="art-orbit"></span><span class="art-edition">FN / 01</span></div>
+            <div class="feed-card-copy"><div class="feed-meta"><span>NEWS DESK</span><span class="preview-tag">CONTENT SLOT</span></div><h3>The headlines, minus the overwhelm.</h3><p>A space for important stories, clear context, and updates worth knowing about. Connect a verified feed to publish real stories here.</p><div class="feed-card-bottom"><span class="category-pill">News & explainers</span><span class="arrow-circle" aria-hidden="true">↗</span></div></div>
+          </article>
+          <article class="feed-card" data-category="memes trending" data-search="memes internet culture trending funny group chat">
+            <div class="feed-art art-meme" aria-hidden="true"><span class="meme-small">ME TRYING TO</span><span class="meme-big">BE<br>NORMAL</span><span class="meme-stamp">LOL<br>LOL<br>LOL</span><span class="meme-foot">NO PROMISES.</span></div>
+            <div class="feed-card-copy"><div class="feed-meta"><span>THE MEME DESK</span><span class="preview-tag">CONTENT SLOT</span></div><h3>Internet culture moves weird.</h3><p>Relatable moments, viral formats, and the things that deserve a spot in the group chat.</p><div class="feed-card-bottom"><span class="category-pill">Memes & culture</span><span class="arrow-circle" aria-hidden="true">↗</span></div></div>
+          </article>
+          <article class="feed-card" data-category="trending news" data-search="technology phones apps internet trending tech">
+            <div class="feed-art art-tech" aria-hidden="true"><span class="tech-ring ring-one"></span><span class="tech-ring ring-two"></span><span class="tech-core">WHAT'S<br>NEXT<span>?</span></span><span class="tech-tag">SIGNAL / 03</span></div>
+            <div class="feed-card-copy"><div class="feed-meta"><span>WHAT'S NEXT</span><span class="preview-tag">CONTENT SLOT</span></div><h3>Tech that touches real life.</h3><p>Useful launches, interesting ideas, and digital trends explained in a way that makes sense.</p><div class="feed-card-bottom"><span class="category-pill">Tech & trending</span><span class="arrow-circle" aria-hidden="true">↗</span></div></div>
+          </article>
+          <article class="feed-card" data-category="gaming trending" data-search="gaming minecraft gaming culture updates">
+            <div class="feed-art art-game" aria-hidden="true"><div class="game-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="game-word">PRESS<br>START</span><span class="game-badge">PLAYER 01</span></div>
+            <div class="feed-card-copy"><div class="feed-meta"><span>PLAYER TWO</span><span class="preview-tag">CONTENT SLOT</span></div><h3>For the ones who live in-game.</h3><p>Gaming news, community moments, and the occasional reminder to touch grass.</p><div class="feed-card-bottom"><span class="category-pill">Gaming & community</span><span class="arrow-circle" aria-hidden="true">↗</span></div></div>
+          </article>
+        </div>
+        <p class="feed-empty" id="feed-empty" hidden>No matching topics yet. Try another search or category.</p>
+        <div class="feed-disclaimer"><span class="info-icon" aria-hidden="true">i</span><p>These are preview content blocks, not live headlines. Connect an official feed or publish verified posts before presenting this area as current news.</p></div>
+      </div>
+    </section>
+
+    <section class="smp-section section-space" id="smp" aria-labelledby="smp-title">
+      <div class="section-wrap">
+        <div class="smp-panel">
+          <div class="smp-text">
+            <p class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> YOUR NEXT ADVENTURE</p>
+            <h2 id="smp-title">The world is<br><span>still loading.</span></h2>
+            <p class="smp-lede">FN SMP is where the squad gets out of the feed and into the world. Build something ridiculous. Explore somewhere new. Make the kind of memories that become server lore.</p>
+            <div class="smp-tags"><span>✳ Survival</span><span>⌂ Community</span><span>▧ Build together</span></div>
+            <a href="#smp-join" class="button button-pale">Get ready to join <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="smp-art" aria-hidden="true">
+            <div class="pixel-sun"></div><div class="voxel voxel-back"></div><div class="voxel voxel-left"></div><div class="voxel voxel-right"></div><div class="voxel voxel-top"></div><div class="voxel voxel-small"></div><div class="voxel-ground"></div>
+            <span class="pixel-caption">A WORLD<br>IN PROGRESS.</span>
+          </div>
+          <span class="smp-coordinate" aria-hidden="true">X: FN&nbsp;&nbsp; Y: SQUAD&nbsp;&nbsp; Z: ∞</span>
+        </div>
+
+        <div class="smp-details" id="smp-join">
+          <div class="smp-detail-intro"><p class="eyebrow">BEFORE YOU SPAWN</p><h3>Set up for<br>the next chapter.</h3><p>The essentials will live here. Server-specific details will appear once they've been confirmed by the team.</p></div>
+          <div class="server-card">
+            <div class="server-card-head"><div><span class="micro-label">SERVER DETAILS</span><h4>FN SMP connection</h4></div><span class="server-status"><span></span> Not configured</span></div>
+            <div class="server-address"><span class="address-label">SERVER ADDRESS</span><span class="address-value" id="server-address">Coming soon</span><button class="copy-button" id="copy-server" type="button" disabled aria-label="Copy Minecraft server address">Copy</button></div>
+            <div class="server-info-grid"><div><span>EDITION</span><strong id="server-edition">To be confirmed</strong></div><div><span>VERSION</span><strong id="server-version">To be confirmed</strong></div></div>
+            <p class="server-note" id="server-note">The address and version have not been published here yet. Check back after the FN Squad team confirms the connection details.</p>
+          </div>
+          <div class="join-checklist">
+            <p class="micro-label">YOUR QUICK CHECKLIST</p>
+            <div class="check-row"><span class="check-number">01</span><div><strong>Confirm your edition</strong><p>Java and Bedrock aren't interchangeable on every server.</p></div></div>
+            <div class="check-row"><span class="check-number">02</span><div><strong>Check the version</strong><p>Use the version published by the FN SMP team.</p></div></div>
+            <div class="check-row"><span class="check-number">03</span><div><strong>Read the server rules</strong><p>Help keep the world welcoming, fair, and fun.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section section-wrap section-space" id="about" aria-labelledby="about-title">
+      <div class="about-statement"><p class="eyebrow">WHY FN SQUAD EXISTS</p><h2 id="about-title">Different interests.<br><span>One place to belong.</span></h2></div>
+      <div class="about-copy"><p>Some days, you want to know what's going on. Some days, you want to laugh at the internet. Other days, you want to spend three hours building a house that definitely wasn't supposed to take three hours.</p><p>FN Squad brings those sides together without making the experience complicated — or making your phone work overtime.</p><a class="underlined-link" href="#connect">Come find your corner <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="faq-section section-wrap" aria-labelledby="faq-title">
+      <div class="faq-heading"><p class="eyebrow">GOOD QUESTIONS</p><h2 id="faq-title">A few things<br>you might wonder.</h2></div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>What is FN Squad?</summary><p>FN Squad is the umbrella community connecting FreakyNews, the news-and-memes channel, and FN SMP, the Minecraft community.</p></details>
+        <details class="faq-item"><summary>Where can I follow FreakyNews?</summary><p>The official WhatsApp channel link needs to be added by the site owner before this website can send you there. Use the connection button below once it has been configured.</p></details>
+        <details class="faq-item"><summary>How do I join FN SMP?</summary><p>The official server address, edition, version, and rules should be published once confirmed. The site intentionally does not guess these details.</p></details>
+        <details class="faq-item"><summary>What are the FN SMP rules?</summary><p>1. No hacks, x-ray or exploits. Report bugs! 2. No griefing or stealing, even if unlocked. 3. PvP only with consent. 4. Respect claims and build 100+ blocks from others. 5. No offensive builds, signs or chat. 6. One main account; declare alts. 7. Staff decisions follow our strike system, and you can appeal in Discord within 14 days.</p></details>
+        <details class="faq-item"><summary>How are FreakyNews posts labelled?</summary><p>Posts are marked Confirmed, Reported, Rumour or Opinion, with a source and date. We verify before we post, credit creators and correct mistakes quickly.</p></details>
+        <details class="faq-item"><summary>Does the feed show live news?</summary><p>Not yet. The cards above demonstrate the site's content layout. A verified content source or manual publishing workflow must be connected before they can represent current stories.</p></details>
+      </div>
+    </section>
+
+    <section class="connect-section section-wrap" id="connect" aria-labelledby="connect-title">
+      <div class="connect-card">
+        <div class="connect-copy"><p class="eyebrow eyebrow-light">YOUR NEXT CLICK</p><h2 id="connect-title">You're in.<br><span>Now pick a world.</span></h2><p>The next update, the next meme, the next build — it starts with showing up.</p></div>
+        <div class="connect-actions"><a href="#freakynews" class="button button-pale" data-connect="whatsapp">Follow FreakyNews <span aria-hidden="true">↗</span></a><a href="#smp-join" class="button button-outline-light">Explore FN SMP <span aria-hidden="true">↗</span></a><p class="connect-config-note" id="connect-note">Official community links will be activated when configured.</p></div>
+        <div class="connect-sheen" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-wrap" id="footer">
+    <a class="brand-lockup" href="#top" aria-label="FN Squad, back to top"><span class="brand-mark" aria-hidden="true">FN</span><span class="brand-name">FN <span>Squad</span></span></a>
+    <p>Made for the curious. Kept light on purpose. FN Squad is an independent community and is not affiliated with Mojang, Microsoft, Discord, Meta or any game studio.</p>
+    <div class="footer-links"><a href="#worlds">Worlds</a><a href="#freakynews">FreakyNews</a><a href="#smp">FN SMP</a><a href="#about">About</a></div>
+    <span class="copyright">© <span id="year">2026</span> FN Squad</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>
