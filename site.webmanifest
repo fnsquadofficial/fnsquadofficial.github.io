@@ -4,8 +4,8 @@
   "description": "News, memes, gaming, and community in one place.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f6f5f2",
-  "theme_color": "#f6f5f2",
+  "background_color": "#171819",
+  "theme_color": "#171819",
   "icons": [
     { "src": "assets/fn-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "assets/fn-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
