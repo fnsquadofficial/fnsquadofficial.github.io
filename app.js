@@ -96,17 +96,17 @@
   }));
   searchInput?.addEventListener('input', filterFeed, { passive: true });
 
-  // Connection buttons open only a configured, verified URL. No fabricated link.
-  document.querySelectorAll('[data-connect="whatsapp"]').forEach((button) => {
+  // Connection buttons open only a configured https URL. No fabricated links.
+  const connectUrls = { whatsapp: config.whatsappChannelUrl, discord: config.discordInviteUrl };
+  const validUrl = (value) => (typeof value === 'string' && /^https:\/\//i.test(value.trim()) ? value.trim() : '');
+  document.querySelectorAll('[data-connect]').forEach((button) => {
+    button.setAttribute('rel', 'noopener noreferrer');
     button.addEventListener('click', (event) => {
-      const url = typeof config.whatsappChannelUrl === 'string' ? config.whatsappChannelUrl.trim() : '';
-      if (url && /^https:\/\//i.test(url)) {
-        event.preventDefault();
-        window.open(url, '_blank', 'noopener,noreferrer');
-      } else {
-        event.preventDefault();
-        announce('WhatsApp link not configured yet. Add the official channel URL in site-config.js.');
-      }
+      event.preventDefault();
+      const key = button.dataset.connect;
+      const url = validUrl(connectUrls[key]);
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+      else announce('This link is not configured yet. Add the official URL in site-config.js.');
     });
   });
 
@@ -138,9 +138,8 @@
     }
   });
 
-  const whatsappConfigured = typeof config.whatsappChannelUrl === 'string' && /^https:\/\//i.test(config.whatsappChannelUrl.trim());
   const connectNote = document.getElementById('connect-note');
-  if (whatsappConfigured && connectNote) connectNote.textContent = 'FreakyNews is ready to open in a new tab.';
+  if (connectNote && validUrl(config.whatsappChannelUrl) && validUrl(config.discordInviteUrl)) connectNote.textContent = 'FreakyNews and Discord open in a new tab.';
 
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
