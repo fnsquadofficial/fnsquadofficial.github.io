@@ -703,3 +703,15 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
   .stream-art { min-height: 98px; }
   .stream-art strong { font-size: 25px; }
 }
+
+/* ===== v4 layer: overflow, readability, tap targets, portal layout ===== */
+:root{--fs-label:11.5px;--fs-small:14px;--fs-body:15.5px;--tap:44px}
+html{overflow-x:clip}body{position:relative}.ambient{max-width:100vw}
+.micro-label,.eyebrow,.feed-meta,.address-label,.server-info-grid span,.world-number,.preview-tag,.category-pill,.smp-tags span,.hero-note,.visual-index,.floating-label small,.stream-category,.stream-source,.stream-count-index{font-size:var(--fs-label);letter-spacing:.12em}
+.ticker-inner{font-size:var(--fs-label)}
+.section-intro,.hero-note,.world-card-copy>p:not(.micro-label),.feed-card-copy p,.feed-note,.feed-disclaimer p,.smp-lede,.smp-detail-intro p,.check-row p,.server-note,.about-copy p,.connect-card p,.connect-config-note,.feed-empty,.faq-item p,.stream-card-body p,.stream-empty{font-size:var(--fs-body);line-height:1.7}
+.button-small,.filter-chip,.copy-button,.icon-button,.text-link,.underlined-link,.footer-links a{min-height:var(--tap)}
+.filter-chip,.copy-button{display:inline-flex;align-items:center}
+.site-footer>p,.footer-links a{font-size:13px}.copyright{font-size:12px}.footer-links a{display:inline-flex;align-items:center}
+@media(min-width:981px){.world-grid{grid-template-columns:1.2fr .95fr;align-items:start}.smp-world{margin-top:56px}.world-illustration{height:185px}}
+@media(max-width:980px){.world-card{min-height:0}.world-illustration{position:relative;top:auto;height:170px;margin:14px 0 18px}.world-card-copy{margin-top:0}}
