@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f6f5f2" id="fn-theme-color">
+  <meta name="theme-color" content="#f2f2f2" id="fn-theme-color">
   <script>
     /* Match supported Android/browser chrome to the active site theme as early as possible.
        A website cannot force transparent OS bars; this prevents a jarring white/dark mismatch. */
@@ -14,14 +14,14 @@
       const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
       root.dataset.theme = dark ? 'dark' : 'light';
       const meta = document.getElementById('fn-theme-color');
-      if (meta) meta.setAttribute('content', dark ? '#171819' : '#f6f5f2');
+      if (meta) meta.setAttribute('content', dark ? '#000000' : '#f2f2f2');
     })();
   </script>
   <meta name="description" content="Explore the FreakyNews feed from FN Squad — news, internet culture, memes, and gaming, in a lightweight continuous timeline.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="FreakyNews Feed — FN Squad">
   <meta property="og:description" content="A lightweight, continuously browsable feed for news, culture, memes, and gaming.">
-  <meta property="og:image" content="https://fnsquadofficial.github.io/assets/fn-squad-logo.webp"><meta property="og:image:alt" content="FN Squad monogram on a soft pearl-white background"><meta name="twitter:card" content="summary_large_image"><meta property="og:url" content="https://fnsquadofficial.github.io/freakynews.html"><link rel="canonical" href="https://fnsquadofficial.github.io/freakynews.html">
+  <meta property="og:image" content="https://fnsquadofficial.github.io/assets/og-fn-squad.png"><meta property="og:image:alt" content="FN Squad logo: bold light-gray FN lettering on black"><meta name="twitter:card" content="summary_large_image"><meta property="og:url" content="https://fnsquadofficial.github.io/freakynews.html"><link rel="canonical" href="https://fnsquadofficial.github.io/freakynews.html">
   <link rel="icon" href="assets/fn-icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/fn-icon-192.png">
   <link rel="manifest" href="site.webmanifest">
@@ -38,36 +38,15 @@
   <div class="ambient ambient-two" aria-hidden="true"></div>
   <header class="site-header" id="top">
     <div class="nav-shell glass-surface">
-      <a class="brand-lockup" href="index.html#top" aria-label="FN Squad home">
-        <span class="brand-mark" aria-hidden="true">FN</span>
-        <span class="brand-name">FN <span>Squad</span></span>
-      </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="index.html#worlds">The worlds</a>
-        <a href="index.html#freakynews">FreakyNews</a>
-        <a href="freakynews.html" class="is-current" aria-current="page">Full feed</a>
-        <a href="index.html#smp">FN SMP</a>
-        <a href="index.html#about">About</a>
-      </nav>
+      <a class="brand-lockup" href="index.html" aria-label="FN Squad home"><img class="brand-mark" src="assets/fn-mark-128.webp" width="36" height="36" alt="" decoding="async"><span class="brand-name">FN <span>Squad</span></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="freakynews.html" class="is-current" aria-current="page">FreakyNews</a><a href="fn-smp.html">FN SMP</a><a href="community.html">Community</a></nav>
       <div class="nav-actions">
-        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
-          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.2 8.2 0 0 1 8.8 3.8 8.3 8.3 0 1 0 20.2 15.2Z"/></svg>
-          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
-        </button>
-        <a class="button button-small button-dark nav-cta" href="index.html#connect">Find your corner <span aria-hidden="true">↗</span></a>
-        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
-          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme"><svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.2 8.2 0 0 1 8.8 3.8 8.3 8.3 0 1 0 20.2 15.2Z"/></svg><svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
+        <a class="button button-small button-dark nav-cta" href="index.html#connect" data-connect="discord">Join Discord <span aria-hidden="true">↗</span></a>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu"><svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
       </div>
     </div>
-    <nav class="mobile-menu glass-surface" id="mobile-menu" aria-label="Mobile navigation" hidden>
-      <a href="index.html#worlds">The worlds <span>01</span></a>
-      <a href="index.html#freakynews">FreakyNews <span>02</span></a>
-      <a href="freakynews.html" aria-current="page">Full feed <span>↗</span></a>
-      <a href="index.html#smp">FN SMP <span>03</span></a>
-      <a href="index.html#about">About <span>04</span></a>
-    </nav>
+    <nav class="mobile-menu glass-surface" id="mobile-menu" aria-label="Mobile navigation" hidden><a href="index.html">Home <span>01</span></a><a href="freakynews.html" aria-current="page">FreakyNews <span>02</span></a><a href="fn-smp.html">FN SMP <span>03</span></a><a href="community.html">Community <span>04</span></a></nav>
   </header>
 
   <main id="main" class="feed-main section-wrap">
@@ -119,12 +98,17 @@
         <div class="aside-mini"><span class="aside-mini-icon" aria-hidden="true">✳</span><div><strong>Made to keep scrolling.</strong><p>Each batch is added only when needed, with a manual fallback when automatic loading is unavailable.</p></div></div>
       </aside>
     </section>
+    <section class="sub-section" id="how-it-works" aria-labelledby="hw-t"><h2 id="hw-t">How FreakyNews works</h2><p class="lede">Fast, fun and accurate. Speed never beats accuracy. Every post carries a label, a source and a date.</p>
+      <div class="info-grid"><div class="info-card"><h3>Confirmed</h3><p>Verified with reliable sources.</p></div><div class="info-card"><h3>Reported</h3><p>A source says it, but we haven't verified it independently.</p></div><div class="info-card"><h3>Rumour</h3><p>Unverified and clearly labelled as such.</p></div><div class="info-card"><h3>Opinion</h3><p>Reviews and takes, not facts.</p></div></div>
+      <ol class="rule-list"><li><span>We verify before we post.</span></li><li><span>We credit sources and creators.</span></li><li><span>We never post private info, graphic content or hate.</span></li><li><span>We keep race, religion and royalty topics under extra care, and hold a story when unsure.</span></li><li><span>We correct mistakes fast and visibly.</span></li></ol></section>
+    <section class="sub-section" id="tips" aria-labelledby="tip-t"><h2 id="tip-t">Got news? Send a tip</h2><p class="lede">DM an FN Editor with what happened, a link or screenshot as evidence, and when it happened. Tell us if you want credit or want to stay anonymous. Tips are checked before posting, so it may take time.</p>
+      <div class="help-box"><p><strong>Spotted a mistake?</strong> Anyone can request a correction or takedown by DM. Editors respond within 24 hours.</p></div></section>
   </main>
 
   <footer class="site-footer section-wrap" id="footer">
-    <a class="brand-lockup" href="index.html#top" aria-label="FN Squad, back to top"><span class="brand-mark" aria-hidden="true">FN</span><span class="brand-name">FN <span>Squad</span></span></a>
-    <p>Made for the curious. Kept light on purpose. FN Squad is an independent community, not affiliated with Mojang, Microsoft, Discord, Meta or any game studio.</p>
-    <div class="footer-links"><a href="index.html#worlds">Worlds</a><a href="index.html#freakynews">FreakyNews</a><a href="freakynews.html" aria-current="page">Full feed</a><a href="index.html#smp">FN SMP</a><a href="index.html#about">About</a><a href="index.html#connect" data-connect="discord">Discord</a></div>
+    <a class="brand-lockup" href="index.html" aria-label="FN Squad home"><img class="brand-mark" src="assets/fn-mark-128.webp" width="36" height="36" alt="" decoding="async"><span class="brand-name">FN <span>Squad</span></span></a>
+    <p>Made for the curious. Kept light on purpose. FN Squad is an independent community and is not affiliated with Mojang, Microsoft, Discord, Meta or any game studio.</p>
+    <div class="footer-links"><a href="index.html">Home</a><a href="freakynews.html">FreakyNews</a><a href="fn-smp.html">FN SMP</a><a href="community.html">Community</a><a href="index.html#connect" data-connect="discord">Discord</a></div>
     <span class="copyright">© <span id="year">2026</span> FN Squad</span>
   </footer>
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>

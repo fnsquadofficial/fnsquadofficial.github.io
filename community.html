@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f2f2" id="fn-theme-color">
+  <script>
+    /* Match supported Android/browser chrome to the active site theme as early as possible.
+       A website cannot force transparent OS bars; this prevents a jarring white/dark mismatch. */
+    (() => {
+      const root = document.documentElement;
+      let saved = null;
+      try { saved = localStorage.getItem('fn-theme'); } catch (_) {}
+      const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      root.dataset.theme = dark ? 'dark' : 'light';
+      const meta = document.getElementById('fn-theme-color');
+      if (meta) meta.setAttribute('content', dark ? '#000000' : '#f2f2f2');
+    })();
+  </script>
+  <meta name="description" content="Community rules, safety, reporting and what happens after a rule break across FN Squad, FreakyNews and FN SMP.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Community and Safety | FN Squad">
+  <meta property="og:description" content="Community rules, safety, reporting and what happens after a rule break across FN Squad, FreakyNews and FN SMP.">
+  <meta property="og:image" content="https://fnsquadofficial.github.io/assets/og-fn-squad.png"><meta property="og:image:alt" content="FN Squad logo: bold light-gray FN lettering on black"><meta name="twitter:card" content="summary_large_image"><meta property="og:url" content="https://fnsquadofficial.github.io/community.html"><link rel="canonical" href="https://fnsquadofficial.github.io/community.html">
+  <link rel="icon" href="assets/fn-icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/fn-icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>Community and Safety | FN Squad</title>
+  <script src="site-config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="feed-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="nav-shell glass-surface">
+      <a class="brand-lockup" href="index.html" aria-label="FN Squad home"><img class="brand-mark" src="assets/fn-mark-128.webp" width="36" height="36" alt="" decoding="async"><span class="brand-name">FN <span>Squad</span></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="freakynews.html">FreakyNews</a><a href="fn-smp.html">FN SMP</a><a href="community.html" class="is-current" aria-current="page">Community</a></nav>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme"><svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.2 8.2 0 0 1 8.8 3.8 8.3 8.3 0 1 0 20.2 15.2Z"/></svg><svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
+        <a class="button button-small button-dark nav-cta" href="index.html#connect" data-connect="discord">Join Discord <span aria-hidden="true">↗</span></a>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu"><svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      </div>
+    </div>
+    <nav class="mobile-menu glass-surface" id="mobile-menu" aria-label="Mobile navigation" hidden><a href="index.html">Home <span>01</span></a><a href="freakynews.html">FreakyNews <span>02</span></a><a href="fn-smp.html">FN SMP <span>03</span></a><a href="community.html" aria-current="page">Community <span>04</span></a></nav>
+  </header>
+  <main id="main" class="feed-main section-wrap">
+    <section class="feed-hero" aria-labelledby="com-title">
+      <div class="feed-hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> FN SQUAD · COMMUNITY</p><h1 id="com-title">Community &amp; safety<span>.</span></h1><p class="feed-hero-lede">Our mission is to build the most fun, fair and trustworthy gaming and news community in Malaysia. These rules apply across WhatsApp, Discord, the FN SMP server, and our Instagram and TikTok accounts.</p></div>
+      <div class="feed-hero-note glass-surface"><span class="hero-note-mark" aria-hidden="true">FN</span><div><strong>Staff are held to a higher standard.</strong><p>English, Bahasa Malaysia and Manglish are all welcome. Rules are applied by meaning, not by wording or language.</p></div></div>
+    </section>
+    <section class="sub-section" aria-labelledby="v-t"><h2 id="v-t">What we value</h2>
+      <div class="info-grid"><div class="info-card"><h3>Fun first</h3><p>We are here to play, laugh and share.</p></div><div class="info-card"><h3>Respect always</h3><p>Banter is welcome. Targeting people is not.</p></div><div class="info-card"><h3>Truth matters</h3><p>FreakyNews posts what we can stand behind.</p></div><div class="info-card"><h3>Fair for everyone</h3><p>The same rules for staff, friends and newcomers.</p></div></div></section>
+    <section class="sub-section" id="rules" aria-labelledby="cr-t"><h2 id="cr-t">Community rules</h2><p class="lede">Breaking rules means a warning, a mute, then removal. Report issues to any Admin or Mod.</p>
+      <ol class="rule-list"><li><span>Respect everyone. No hate, bullying or doxxing.</span></li><li><span>No race, religion or royalty (3R) attacks. Malaysia is multiracial and multi-religious.</span></li><li><span>No spam, scams, gambling, 18+ content or gore.</span></li><li><span>No unverified rumours or private screenshots.</span></li><li><span>No ads or links without Admin approval.</span></li><li><span>Stay on topic. Be kind, keep it fun.</span></li></ol>
+      <div class="page-faq">
+        <details class="faq-item"><summary>Friendly roasting</summary><p>Allowed only between people who both clearly enjoy it. If someone says stop, you stop.</p></details>
+        <details class="faq-item"><summary>Keeping it safe</summary><p>No sexual or pornographic content, no gore, no shock content, and nothing that promotes self-harm, violence or illegal activity. Don't share private info (phone numbers, addresses, IC numbers, photos, chat screenshots) without the person's consent. Gambling, betting, loans, adult services and investment schemes are banned, and so are scam links, phishing and fake giveaways.</p></details>
+        <details class="faq-item"><summary>Platform notes</summary><p>The FreakyNews WhatsApp channel is one-way, so use the linked discussion group. On Discord, use the right channel, keep nicknames readable and don't impersonate staff. Instagram and TikTok comments follow the same rules, and giveaways need clear rules and Admin sign-off.</p></details>
+      </div></section>
+    <section class="sub-section" aria-labelledby="age-t"><h2 id="age-t">Age and safety</h2>
+      <div class="info-grid"><div class="info-card"><h3>Minimum ages</h3><p>Discord requires members to be 13 or older. We recommend 16+ for WhatsApp groups. Members under 18 get stricter moderation.</p></div><div class="info-card"><h3>Adults and minors</h3><p>Adults must not DM minors for non-community reasons. Inappropriate messages toward anyone who appears to be a minor mean an instant ban and may be reported.</p></div><div class="info-card"><h3>Protect yourself</h3><p>Never share personal details publicly, and never meet strangers from the community alone.</p></div></div></section>
+    <section class="sub-section" aria-labelledby="rep-t"><h2 id="rep-t">How to report</h2><p class="lede">DM any Admin or Mod, or use #how-to-report on Discord. Include screenshots that show the username, message, date and time. Reports are confidential and reporters are never named to the accused. Deliberately false reports count as a violation.</p></section>
+    <section class="sub-section" id="consequences" aria-labelledby="con-t"><h2 id="con-t">What happens after a rule break</h2>
+      <div class="info-grid"><div class="info-card"><h3>Strike 1</h3><p>Warning, plus a short mute where relevant.</p></div><div class="info-card"><h3>Strike 2</h3><p>Temporary suspension of 3 to 14 days.</p></div><div class="info-card"><h3>Strike 3</h3><p>Permanent removal.</p></div><div class="info-card"><h3>Severe offences</h3><p>Hate, threats, scams, hacks and anything involving minors mean an instant ban.</p></div></div>
+      <p class="lede" style="margin-top:16px">Strikes 1 and 2 expire after 90 clean days. You can appeal within 14 days using your case number, and a different Admin reviews it.</p></section>
+    <section class="sub-section" aria-labelledby="help-t"><h2 id="help-t">Need help?</h2>
+      <div class="help-box"><p><strong>In immediate danger, call 999.</strong></p><p>Befrienders KL: 03-7627 2929 (emotional support). Talian Kasih: 15999 (child welfare concerns).</p><p>FN Squad staff are volunteers, not professionals. If someone is in crisis, we'll respond with care and point to these services.</p></div></section>
+    <section class="sub-section" aria-labelledby="md-t"><h2 id="md-t">Money and data</h2>
+      <div class="info-grid"><div class="info-card"><h3>No pay-to-win. Ever.</h3><p>Donations are optional and go to running costs.</p></div><div class="info-card"><h3>Minors and money</h3><p>We never ask minors for money. Payments from under-18s need a parent or guardian's clear involvement.</p></div><div class="info-card"><h3>Minimal data</h3><p>We keep your data minimal and private, and never sell or share it. This website uses no analytics or tracking. Ask any Admin what we hold about you.</p></div></div></section>
+  </main>
+  <footer class="site-footer section-wrap" id="footer">
+    <a class="brand-lockup" href="index.html" aria-label="FN Squad home"><img class="brand-mark" src="assets/fn-mark-128.webp" width="36" height="36" alt="" decoding="async"><span class="brand-name">FN <span>Squad</span></span></a>
+    <p>Made for the curious. Kept light on purpose. FN Squad is an independent community and is not affiliated with Mojang, Microsoft, Discord, Meta or any game studio.</p>
+    <div class="footer-links"><a href="index.html">Home</a><a href="freakynews.html">FreakyNews</a><a href="fn-smp.html">FN SMP</a><a href="community.html">Community</a><a href="index.html#connect" data-connect="discord">Discord</a></div>
+    <span class="copyright">© <span id="year">2026</span> FN Squad</span>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f2f2" id="fn-theme-color">
+  <script>
+    /* Match supported Android/browser chrome to the active site theme as early as possible.
+       A website cannot force transparent OS bars; this prevents a jarring white/dark mismatch. */
+    (() => {
+      const root = document.documentElement;
+      let saved = null;
+      try { saved = localStorage.getItem('fn-theme'); } catch (_) {}
+      const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      root.dataset.theme = dark ? 'dark' : 'light';
+      const meta = document.getElementById('fn-theme-color');
+      if (meta) meta.setAttribute('content', dark ? '#000000' : '#f2f2f2');
+    })();
+  </script>
+  <meta name="description" content="FN SMP is the FN Squad Minecraft survival community: how to join through Discord, server rules and FAQs.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FN SMP | FN Squad">
+  <meta property="og:description" content="FN SMP is the FN Squad Minecraft survival community: how to join through Discord, server rules and FAQs.">
+  <meta property="og:image" content="https://fnsquadofficial.github.io/assets/og-fn-smp.png"><meta property="og:image:alt" content="FN SMP logo: bold FN lettering with SMP beneath"><meta name="twitter:card" content="summary_large_image"><meta property="og:url" content="https://fnsquadofficial.github.io/fn-smp.html"><link rel="canonical" href="https://fnsquadofficial.github.io/fn-smp.html">
+  <link rel="icon" href="assets/fn-icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/fn-icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>FN SMP | FN Squad</title>
+  <script src="site-config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="feed-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <div class="nav-shell glass-surface">
+      <a class="brand-lockup" href="index.html" aria-label="FN Squad home"><img class="brand-mark" src="assets/fn-mark-128.webp" width="36" height="36" alt="" decoding="async"><span class="brand-name">FN <span>Squad</span></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="freakynews.html">FreakyNews</a><a href="fn-smp.html" class="is-current" aria-current="page">FN SMP</a><a href="community.html">Community</a></nav>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme"><svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.2 8.2 0 0 1 8.8 3.8 8.3 8.3 0 1 0 20.2 15.2Z"/></svg><svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
+        <a class="button button-small button-dark nav-cta" href="index.html#connect" data-connect="discord">Join Discord <span aria-hidden="true">↗</span></a>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu"><svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      </div>
+    </div>
+    <nav class="mobile-menu glass-surface" id="mobile-menu" aria-label="Mobile navigation" hidden><a href="index.html">Home <span>01</span></a><a href="freakynews.html">FreakyNews <span>02</span></a><a href="fn-smp.html" aria-current="page">FN SMP <span>03</span></a><a href="community.html">Community <span>04</span></a></nav>
+  </header>
+  <main id="main" class="feed-main section-wrap">
+    <section class="feed-hero" aria-labelledby="smp-page-title">
+      <div class="feed-hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> FN SQUAD · MINECRAFT</p><h1 id="smp-page-title">FN SMP<span>.</span></h1><p class="feed-hero-lede">A Minecraft survival community run by the FN Squad team, with clear rules, fair moderation and a whitelist. Build something ridiculous, explore somewhere new, and help keep the world welcoming.</p><div class="cta-row"><a class="button button-dark" href="#join">How to join <span aria-hidden="true">↘</span></a><a class="button button-light" href="#rules">Server rules</a></div></div>
+      <div class="logo-tile"><img src="assets/fn-smp-logo-512.webp" srcset="assets/fn-smp-logo-256.webp 256w, assets/fn-smp-logo-512.webp 512w" sizes="(max-width:640px) 150px, 230px" width="512" height="512" alt="FN SMP logo: bold FN lettering with SMP beneath" fetchpriority="high" decoding="async"></div>
+    </section>
+    <section class="sub-section" id="details" aria-labelledby="d-t"><h2 id="d-t">Server details</h2><p class="lede">We only publish details the team has confirmed.</p>
+      <div class="server-card" style="margin-top:22px"><div class="server-card-head"><div><span class="micro-label">SERVER DETAILS</span><h4>FN SMP connection</h4></div><span class="server-status"><span></span> Not configured</span></div>
+        <div class="server-address"><span class="address-label">SERVER ADDRESS</span><span class="address-value" id="server-address">Coming soon</span><button class="copy-button" id="copy-server" type="button" disabled aria-label="Copy Minecraft server address">Copy</button></div>
+        <div class="server-info-grid"><div><span>EDITION</span><strong id="server-edition">To be confirmed</strong></div><div><span>VERSION</span><strong id="server-version">To be confirmed</strong></div></div>
+        <p class="server-note" id="server-note">The address, edition and version have not been published yet. Check back after the FN SMP team confirms them.</p></div></section>
+    <section class="sub-section" id="join" aria-labelledby="j-t"><h2 id="j-t">How to join</h2><p class="lede">The server uses a whitelist. Applications go through Discord and need real answers.</p>
+      <ol class="rule-list"><li><span><strong>Join the FN Squad Discord</strong> and read #rules.</span></li><li><span><strong>Apply in #whitelist-apply.</strong> Answer honestly. Members under 13 can't use Discord.</span></li><li><span><strong>Wait for the team to review your application.</strong> Staff will contact you through Discord.</span></li><li><span><strong>Connect with the confirmed address, edition and version</strong> once they are published above.</span></li></ol>
+      <div class="cta-row"><a class="button button-dark" href="index.html#connect" data-connect="discord">Join the Discord <span aria-hidden="true">↗</span></a></div></section>
+    <section class="sub-section" id="rules" aria-labelledby="r-t"><h2 id="r-t">Server rules</h2><p class="lede">The short version. Staff decisions follow the <a href="community.html#consequences">strike system</a>.</p>
+      <ol class="rule-list"><li><span>No hacks, x-ray or exploits. Report bugs!</span></li><li><span>No griefing or stealing, even if unlocked.</span></li><li><span>PvP only with consent.</span></li><li><span>Respect claims. Build 100+ blocks from others.</span></li><li><span>No offensive builds, signs or chat.</span></li><li><span>One main account. Declare alts.</span></li><li><span>Staff decisions follow our strike system. Appeal in Discord within 14 days.</span></li></ol>
+      <div class="page-faq">
+        <details class="faq-item"><summary>Fair play</summary><p>No hacked clients, x-ray, fly, kill aura, auto-clickers or macros. Allowed where the server permits: Optifine, Sodium, Iris and minimaps without entity or cave radar. Don't exploit bugs or glitches; report them to staff. Using a known dupe breaks the rules, and reporting one is rewarded. No lag machines or chunk-loading abuse, and no alts to farm resources or bypass punishments.</p></details>
+        <details class="faq-item"><summary>Griefing and theft</summary><p>No breaking, stealing from, burning, flooding or altering another player's builds, claims or storage. No stealing from chests, farms or bases, even unlocked ones. Trades must be clear and agreed. No trapping, spawn-killing or harassment. Respect claims, and if land isn't claimed, build at least 100 blocks from existing bases unless the owner agrees.</p></details>
+        <details class="faq-item"><summary>PvP</summary><p>Survival is PvE by default. PvP is allowed only with mutual consent or in designated arenas. Killing without consent is treated as harassment on a first offence and as a strike on repeats.</p></details>
+        <details class="faq-item"><summary>Building and chat</summary><p>No offensive builds or signs (hate symbols, slurs, sexual builds, drug imagery, political attacks). Keep spawn public and tidy, replant trees and fill big holes. Chat with neighbours before large builds. The community Code of Conduct applies in-game and on Discord, and advertising other servers isn't allowed.</p></details>
+        <details class="faq-item"><summary>Accounts</summary><p>One main account per person; declare any alts to staff. Never share your password. Staff will never ask for it.</p></details>
+        <details class="faq-item"><summary>Inactivity and claims</summary><p>Players inactive for 60 days are marked inactive. Claims may be released after 90 days with a warning in Discord. On a break for exams or work? Ask staff to hold your claim. Reclaimed builds are protected or moved, not destroyed, whenever possible.</p></details>
+        <details class="faq-item"><summary>How staff handle reports</summary><p>Staff look at logs and other evidence before acting, aim for at least two pieces of evidence for griefing or cheating, and never punish on rumours alone. Bans can be appealed through the Discord form within 14 days. A different staff member reviews it, and that decision is final.</p></details>
+      </div></section>
+    <section class="sub-section" aria-labelledby="f-t"><h2 id="f-t">Good questions</h2>
+      <div class="page-faq">
+        <details class="faq-item"><summary>Do I need mods?</summary><p>That depends on the server mode, which the team will announce. A Semi-Vanilla server needs no mods. A modded server needs one exact modpack and version.</p></details>
+        <details class="faq-item"><summary>Is it pay-to-win?</summary><p>No. Donations are optional and go to running costs first. Perks, if any, are cosmetic or convenience only. We never sell in-game items, claims or rule exceptions.</p></details>
+        <details class="faq-item"><summary>Which edition and version is it?</summary><p>Not announced yet. We'll publish the confirmed edition and version in the server details above.</p></details>
+      </div></section>
+  </main>
+  <footer class="site-footer section-wrap" id="footer">
+    <a class="brand-lockup" href="index.html" aria-label="FN Squad home"><img class="brand-mark" src="assets/fn-mark-128.webp" width="36" height="36" alt="" decoding="async"><span class="brand-name">FN <span>Squad</span></span></a>
+    <p>Made for the curious. Kept light on purpose. FN Squad is an independent community and is not affiliated with Mojang, Microsoft, Discord, Meta or any game studio.</p>
+    <div class="footer-links"><a href="index.html">Home</a><a href="freakynews.html">FreakyNews</a><a href="fn-smp.html">FN SMP</a><a href="community.html">Community</a><a href="index.html#connect" data-connect="discord">Discord</a></div>
+    <span class="copyright">© <span id="year">2026</span> FN Squad</span>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>

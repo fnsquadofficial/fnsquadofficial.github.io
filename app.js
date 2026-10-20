@@ -25,7 +25,7 @@
     const meta = document.getElementById('fn-theme-color');
     if (!meta) return;
     const isDark = root.dataset.theme === 'dark';
-    meta.setAttribute('content', isDark ? '#171819' : '#f6f5f2');
+    meta.setAttribute('content', isDark ? '#000000' : '#f2f2f2');
   };
   const updateThemeControl = () => {
     const isDark = root.dataset.theme === 'dark';
@@ -143,21 +143,4 @@
 
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
-
-  // Mark sections in view for the small active-link hint; no continuous scroll handlers.
-  if ('IntersectionObserver' in window) {
-    const navLinks = [...document.querySelectorAll('.desktop-nav a')];
-    const linkById = new Map(navLinks.map((link) => [link.getAttribute('href')?.slice(1), link]));
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach((link) => link.classList.remove('is-current'));
-        linkById.get(entry.target.id)?.classList.add('is-current');
-      });
-    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-    ['worlds', 'freakynews', 'smp', 'about'].forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-  }
 })();
