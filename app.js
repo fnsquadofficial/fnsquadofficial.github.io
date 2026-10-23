@@ -21,12 +21,31 @@
     try { return window.localStorage.getItem('fn-theme'); } catch (_) { return null; }
   })();
   if (savedTheme === 'dark' || savedTheme === 'light') root.dataset.theme = savedTheme;
+  // Keep the browser/system bar colours, canvas and color-scheme in sync with the ACTIVE theme
+  // (not the phone's setting), including after manual toggles and back/forward cache restores.
+  const BAR = { light: '#f2f2f2', dark: '#000000' };
   const updateSystemThemeColor = () => {
-    const meta = document.getElementById('fn-theme-color');
-    if (!meta) return;
-    const isDark = root.dataset.theme === 'dark';
-    meta.setAttribute('content', isDark ? '#000000' : '#f2f2f2');
+    const mode = root.dataset.theme === 'dark' ? 'dark' : 'light';
+    // A fresh meta element is picked up more reliably than editing one in place on some Android builds.
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.remove());
+    const bar = document.createElement('meta');
+    bar.name = 'theme-color';
+    bar.id = 'fn-theme-color';
+    bar.content = BAR[mode];
+    document.head.appendChild(bar);
+    const scheme = document.querySelector('meta[name="color-scheme"]');
+    if (scheme) scheme.content = mode;
+    root.style.colorScheme = mode;
+    root.style.backgroundColor = BAR[mode]; // canvas under the system bars changes instantly
   };
+  window.addEventListener('pageshow', updateSystemThemeColor);
+  try {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      if (savedTheme === 'dark' || savedTheme === 'light') return; // an explicit choice wins
+      root.dataset.theme = event.matches ? 'dark' : 'light';
+      updateThemeControl();
+    });
+  } catch (_) { /* older browsers: no live system-theme following */ }
   const updateThemeControl = () => {
     const isDark = root.dataset.theme === 'dark';
     if (themeButton) {
