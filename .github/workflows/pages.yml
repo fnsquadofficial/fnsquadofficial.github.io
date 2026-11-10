@@ -9,6 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Keep legacy page URLs working
+        run: |
+          for page in community fn-smp freakynews privacy; do
+            cp "$page/index.html" "$page.html"
+          done
       - uses: actions/upload-pages-artifact@v3
         with: { path: . }
       - id: d
