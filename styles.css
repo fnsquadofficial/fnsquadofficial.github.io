@@ -746,3 +746,8 @@ h1,h2,.brand-name{font-weight:800;letter-spacing:-.035em}
 :root[data-theme="dark"] .button-dark{background:#d9d9d9;color:#000;border-color:#d9d9d9}
 :root[data-theme="dark"] .button-dark:hover{background:#ececec}
 :root[data-theme="dark"] .button-light{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+
+/* Site standards and jurisdiction notice */
+.site-notice { width: 100%; margin-block: 12px; padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface-solid); color: var(--ink); font-size: 13px; }
+.site-notice a { padding-block: 4px; text-decoration: underline; text-underline-offset: 3px; }
+.site-notice a:hover { color: var(--accent-dark); }
