@@ -751,3 +751,8 @@ h1,h2,.brand-name{font-weight:800;letter-spacing:-.035em}
 .site-notice { width: 100%; margin-block: 12px; padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface-solid); color: var(--ink); font-size: 13px; }
 .site-notice a { padding-block: 4px; text-decoration: underline; text-underline-offset: 3px; }
 .site-notice a:hover { color: var(--accent-dark); }
+
+.fn-icon { width: 1.1em; height: 1.1em; flex: none; margin-inline-end: .4em; vertical-align: -.18em; fill: currentColor; }
+.fn-reference-list { display: flex; flex-wrap: wrap; gap: .4rem; width: 100%; margin: 0; padding: 0; list-style: none; }
+.site-notice .fn-reference-list a { display: inline-flex; align-items: center; gap: .4em; min-height: 30px; padding: .25em .7em; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink); text-decoration: none; }
+.site-notice .fn-reference-list a:hover, .site-notice .fn-reference-list a:focus-visible { background: var(--bg-alt); text-decoration: underline; }
