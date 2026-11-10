@@ -54,7 +54,12 @@
   const updateStatus = () => {
     const shown = list.children.length;
     count.textContent = `Showing ${shown} of ${visibleItems.length} preview entries`;
-    loadButton.hidden = cursor >= visibleItems.length || visibleItems.length === 0;
+    const hideLoadButton = cursor >= visibleItems.length || visibleItems.length === 0;
+    if (hideLoadButton && document.activeElement === loadButton) {
+      count.setAttribute('tabindex', '-1');
+      count.focus();
+    }
+    loadButton.hidden = hideLoadButton;
     end.hidden = cursor < visibleItems.length || visibleItems.length === 0;
     empty.hidden = visibleItems.length !== 0;
     if (filters.length) {
