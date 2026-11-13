@@ -25,7 +25,7 @@
     return source.filter((item) => {
       const categories = String(item.category || '').split(/\s+/);
       const matchCategory = activeFilter === 'all' || categories.includes(activeFilter);
-      const haystack = `${item.label || ''} ${item.title || ''} ${item.body || ''} ${item.source || ''}`.toLocaleLowerCase();
+      const haystack = `${item.label || ''} ${item.title || ''} ${item.body || ''} ${item.source || ''} ${item.date || ''} ${item.sourceType || ''}`.toLocaleLowerCase();
       return matchCategory && (!query || haystack.includes(query));
     });
   };
@@ -39,21 +39,38 @@
     return `<div class="stream-art ${tone}" aria-hidden="true"><span class="stream-art-label">${label}</span><strong>${headline}</strong><span class="stream-art-monogram">FN</span></div>`;
   };
 
+  const formatDate = (iso) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(iso || ''))) return 'Date unavailable';
+    const parsed = new Date(iso + 'T00:00:00Z');
+    return Number.isNaN(parsed.getTime()) ? 'Date unavailable' :
+      new Intl.DateTimeFormat('en-MY', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(parsed);
+  };
+
   const cardMarkup = (item, index) => {
-    const title = escapeHtml(item.title || 'Content slot');
+    const id = String(item.id || `item-${index}`).replace(/[^a-zA-Z0-9_-]/g, '');
+    const title = escapeHtml(item.title || 'Untitled story');
     const body = escapeHtml(item.body || '');
-    const label = escapeHtml(item.label || 'CONTENT SLOT');
-    const sourceLabel = escapeHtml(item.source || 'SOURCE NEEDED');
-    return `<article class="stream-card" data-entry-id="${String(item.id || `item-${index}`).replace(/[^a-zA-Z0-9_-]/g, '')}">
-      <div class="stream-card-top"><span class="stream-avatar" aria-hidden="true">FN</span><div class="stream-author"><strong>FreakyNews</strong><span>FN Squad · DEMO</span></div><span class="preview-tag">CONTENT SLOT</span></div>
-      <div class="stream-card-body"><div class="stream-category">${label}</div><h3>${title}</h3><p>${body}</p>${artMarkup(item)}</div>
-      <div class="stream-card-footer"><span class="stream-source"><span class="source-dot" aria-hidden="true"></span>${sourceLabel}</span><span class="stream-count-index">${String(index + 1).padStart(2, '0')}</span></div>
+    const label = escapeHtml(item.label || 'NEWS');
+    const sourceLabel = escapeHtml(item.source || 'Source not identified');
+    const sourceType = escapeHtml(item.sourceType || 'Sourced summary');
+    const rawUrl = String(item.sourceUrl || '');
+    const safeUrl = /^https:\/\/[^\s"'<>]+$/.test(rawUrl) ? escapeHtml(rawUrl) : '';
+    const date = escapeHtml(item.date || '');
+    const humanDate = escapeHtml(formatDate(item.date));
+    const sourceLink = safeUrl
+      ? `<a class="fn-read-source" href="${safeUrl}" target="_blank" rel="noopener noreferrer" aria-label="Read original source for ${title}">Read original source <span aria-hidden="true">↗</span></a>`
+      : '';
+    return `<article class="stream-card fn-news-card" data-entry-id="${id}" aria-labelledby="story-${id}">
+      <div class="stream-card-top"><span class="stream-avatar" aria-hidden="true">FN</span><div class="stream-author"><strong>FreakyNews</strong><span>FN Squad · Curated</span></div><span class="preview-tag fn-sourced-tag">SOURCED</span></div>
+      <div class="stream-card-body"><div class="fn-news-meta"><span class="stream-category">${label}</span><time datetime="${date}">${humanDate}</time></div>
+      <h3 id="story-${id}">${title}</h3><p>${body}</p>${artMarkup(item)}</div>
+      <div class="stream-card-footer"><div class="fn-source-stack"><span class="stream-source"><span class="source-dot" aria-hidden="true"></span>${sourceLabel}</span><span class="fn-source-type">${sourceType}</span></div>${sourceLink}<span class="stream-count-index" aria-label="Story ${index + 1}">${String(index + 1).padStart(2, '0')}</span></div>
     </article>`;
   };
 
   const updateStatus = () => {
     const shown = list.children.length;
-    count.textContent = `Showing ${shown} of ${visibleItems.length} preview entries`;
+    count.textContent = `Showing ${shown} of ${visibleItems.length} sourced stories`;
     const hideLoadButton = cursor >= visibleItems.length || visibleItems.length === 0;
     if (hideLoadButton && document.activeElement === loadButton) {
       count.setAttribute('tabindex', '-1');
