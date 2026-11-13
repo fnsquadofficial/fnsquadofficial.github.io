@@ -17,7 +17,7 @@
 
   // Keep the theme preference small and optional; the system theme is the fallback.
   const themeButton = document.querySelector('.theme-toggle');
-  const savedTheme = (() => {
+  let savedTheme = (() => {
     try { return window.localStorage.getItem('fn-theme'); } catch (_) { return null; }
   })();
   if (savedTheme === 'dark' || savedTheme === 'light') root.dataset.theme = savedTheme;
@@ -59,6 +59,7 @@
     const currentDark = root.dataset.theme === 'dark';
     const next = currentDark ? 'light' : 'dark';
     root.dataset.theme = next;
+    savedTheme = next;
     try { window.localStorage.setItem('fn-theme', next); } catch (_) { /* Private browsing: theme still works for this page. */ }
     updateThemeControl();
   });
@@ -116,17 +117,15 @@
   searchInput?.addEventListener('input', filterFeed, { passive: true });
 
   // Connection buttons open only a configured https URL. No fabricated links.
-  const connectUrls = { whatsapp: config.whatsappChannelUrl, discord: config.discordInviteUrl };
+  const connectUrls = { whatsapp: config.whatsappChannelUrl, discord: config.discordInviteUrl, homie: config.whatsappGroupUrl, updates: config.updatesChannelUrl, smp: config.minecraftWhatsappUrl };
   const validUrl = (value) => (typeof value === 'string' && /^https:\/\//i.test(value.trim()) ? value.trim() : '');
   document.querySelectorAll('[data-connect]').forEach((button) => {
     button.setAttribute('rel', 'noopener noreferrer');
-    button.addEventListener('click', (event) => {
-      event.preventDefault();
-      const key = button.dataset.connect;
-      const url = validUrl(connectUrls[key]);
-      if (url) window.open(url, '_blank', 'noopener,noreferrer');
-      else announce('This link is not configured yet. Add the official URL in site-config.js.');
-    });
+    const url = validUrl(connectUrls[button.dataset.connect]);
+    if (url) {
+      button.href = url;
+      button.target = '_blank';
+    }
   });
 
   // Show verified Minecraft details only; unconfigured values remain explicit.
@@ -158,7 +157,7 @@
   });
 
   const connectNote = document.getElementById('connect-note');
-  if (connectNote && validUrl(config.whatsappChannelUrl) && validUrl(config.discordInviteUrl)) connectNote.textContent = 'FreakyNews and Discord open in a new tab.';
+  if (connectNote && validUrl(config.whatsappChannelUrl) && validUrl(config.discordInviteUrl)) connectNote.textContent = 'Official community links open in a new tab.';
 
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
