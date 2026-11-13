@@ -1,0 +1,40 @@
+/* FreakyNews — dated, source-linked editorial feed. 14 Nov 2026.
+   Scope to the news page; preserve the original FN Squad design language. */
+.feed-page .stream-heading-row{flex-wrap:wrap}
+.feed-page .stream-state{font-size:.68rem;font-weight:750;letter-spacing:.09em}
+.feed-page .stream-tools .filter-list{display:flex;flex-wrap:wrap;gap:7px;min-width:0}
+.feed-page .stream-tools .filter-chip{min-height:39px;white-space:nowrap}
+.feed-page .fn-news-card{overflow-wrap:anywhere}
+.feed-page .fn-news-card .fn-sourced-tag{border-color:var(--line-strong);color:var(--ink);font-weight:850;letter-spacing:.09em}
+.feed-page .fn-news-card .stream-author span{font-size:.74rem;color:var(--muted)}
+.feed-page .fn-news-card .stream-card-body{padding-top:18px}
+.feed-page .fn-news-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-bottom:8px}
+.feed-page .fn-news-meta .stream-category{margin:0;font-size:.74rem;font-weight:800}
+.feed-page .fn-news-meta time{color:var(--muted);font-size:.76rem;font-weight:620;font-variant-numeric:tabular-nums;white-space:nowrap}
+.feed-page .fn-news-card h3{font-size:clamp(1.15rem,2.4vw,1.55rem);font-weight:780;line-height:1.28;letter-spacing:-.04em}
+.feed-page .fn-news-card .stream-card-body>p{max-width:75ch;margin:11px 0 16px;color:var(--muted);font-size:.95rem;line-height:1.75;display:block;overflow:visible;-webkit-line-clamp:unset;-webkit-box-orient:initial}
+.feed-page .fn-news-card .stream-card-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:9px 16px;padding-top:13px}
+.feed-page .fn-source-stack{display:flex;flex:1 1 145px;min-width:0;flex-direction:column;gap:3px}
+.feed-page .fn-source-stack .stream-source{color:var(--ink);font-size:.79rem;line-height:1.4;letter-spacing:0}
+.feed-page .fn-source-type{color:var(--muted);font-size:.73rem;line-height:1.4}
+.feed-page .fn-read-source{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;max-width:100%;padding:10px 13px;border:1px solid var(--line-strong);border-radius:11px;color:var(--ink);font-size:.78rem;font-weight:800;text-decoration:none;white-space:normal;text-align:center;transition:background .18s ease,border-color .18s ease}
+.feed-page .fn-read-source:hover,.feed-page .fn-read-source:focus-visible{background:var(--bg-alt);border-color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.feed-page .fn-news-card .stream-count-index{font-size:.7rem}
+.feed-page .feed-disclaimer a,.feed-page .sub-section a{text-decoration:underline;text-underline-offset:3px}
+.feed-page .feed-disclaimer p{font-size:.81rem;line-height:1.7}
+.feed-page .feed-disclaimer strong{font-weight:780}
+.feed-page .stream-static-fallback .fn-news-card .stream-category{font-size:.72rem}
+@media(max-width:760px){
+ .feed-page .stream-heading-row{align-items:start}
+ .feed-page .stream-tools .filter-list{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scroll-snap-type:x proximity;padding:4px 0 10px}
+ .feed-page .stream-tools .filter-chip{flex:0 0 auto;scroll-snap-align:start}
+ .feed-page .fn-news-card .stream-card-body>p{display:block;overflow:visible;-webkit-line-clamp:unset;font-size:.9rem;line-height:1.7}
+ .feed-page .fn-news-card .stream-card-footer{gap:10px}
+}
+@media(max-width:430px){
+ .feed-page .fn-news-card .stream-card-top .fn-sourced-tag{font-size:.62rem;padding:5px 7px}
+ .feed-page .fn-news-card .stream-card-footer .fn-read-source{order:3;flex:1 1 100%;width:100%}
+ .feed-page .fn-news-card .stream-count-index{margin-left:auto}
+ .feed-page .stream-state{white-space:normal;line-height:1.4}
+}
+@media(prefers-reduced-motion:reduce){.feed-page .fn-read-source{transition:none}}
