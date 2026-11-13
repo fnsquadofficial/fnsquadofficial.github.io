@@ -83,7 +83,7 @@
   });
   mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
-  window.addEventListener('resize', () => { if (window.innerWidth > 760) closeMenu(); }, { passive: true });
+  window.addEventListener('resize', () => { if (window.innerWidth > 880) closeMenu(); }, { passive: true });
 
   // Search and category filters work locally against the content blocks already in the page.
   const filterButtons = [...document.querySelectorAll('[data-filter]')];
