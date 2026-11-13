@@ -1,0 +1,283 @@
+/*
+  FN Squad responsive compatibility layer — 13 November 2026
+  Loaded AFTER the core stylesheet (and the homepage icon patch).
+  Preserves the existing monochrome visual system, spacing language and artwork.
+  Covers narrow/cover phones, mobile landscape, iPhone safe areas, foldables,
+  tablets, desktop, large displays and remote/keyboard navigation.
+*/
+
+/* Structural overflow protection without clipping meaningful local scrollers. */
+html, body { min-width: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+:where(main, section, article, aside, nav, header, footer, .privacy-layout,
+  .privacy-body, .privacy-main, .section-wrap, .feed-main, .stream-layout,
+  .stream-column, .info-card, .destination-card, .social-tile, .feed-card,
+  .stream-card, .smp-panel, .world-card, .hub-heading) { min-width: 0; }
+:where(.privacy-main, .privacy-body, .privacy-table td, .privacy-table th,
+  .stream-card, .stream-card-body, .feed-card-copy, .info-card,
+  .destination-card, .site-notice, .server-card) { overflow-wrap: anywhere; }
+:where(img, video, iframe, picture, canvas) { max-width: 100%; }
+:where(img, video) { height: auto; }
+:where(a, button) { touch-action: manipulation; }
+:where(.button, .icon-button, .filter-chip, .mobile-menu a, .privacy-toc a,
+  .privacy-nav a, .footer-links a) { -webkit-tap-highlight-color: transparent; }
+
+/* Make flexible rows shrink rather than enlarge the page. */
+:where(.site-footer, .footer-links, .nav-shell, .nav-actions,
+  .destination-grid, .destination-stack, .social-grid, .stream-tools,
+  .feed-tools, .cta-row, .privacy-nav) > * { min-width: 0; }
+:where(.destination-card, .social-tile, .info-card, .help-box, .server-card) a {
+  overflow-wrap: anywhere;
+}
+:where(.social-tile, .destination-card) strong { overflow-wrap: anywhere; }
+
+/* Privacy: retain the existing title/typography/sidebar/table aesthetics. */
+.privacy-main { width: min(100%, 1040px); }
+.privacy-nav, .privacy-main footer { row-gap: 6px; }
+.privacy-main footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  align-items: center;
+}
+.privacy-main footer .privacy-date { flex-basis: 100%; }
+.privacy-layout { min-width: 0; }
+.privacy-toc { min-width: 0; max-height: calc(100vh - 48px); overflow-y: auto; }
+.privacy-body :where(p, li, td, th) { overflow-wrap: anywhere; }
+.privacy-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.privacy-table { min-width: 660px; }
+.privacy-table caption {
+  padding: 12px 16px;
+  text-align: left;
+  color: var(--muted);
+  font-size: 13px;
+}
+.privacy-body section { min-width: 0; }
+.privacy-body :where(h2, h3) { text-wrap: balance; }
+.privacy-body :where(a, code) { overflow-wrap: anywhere; }
+.privacy-body code { white-space: normal; }
+.privacy-toc a, .privacy-nav a { line-height: 1.4; }
+
+/* Keyboard navigation, including TVs, controllers and non-touch tablets. */
+:where(.privacy-main, .site-footer) a:focus-visible,
+:where(.social-tile, .destination-card, .mobile-menu a):focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+:where(.privacy-toc, .privacy-table-wrap):focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Medium desktop / large tablet: use the existing mobile-menu system
+   before the desktop navigation gets too cramped. */
+@media (max-width: 880px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: grid; }
+  .nav-actions { margin-left: auto; }
+  .nav-cta { display: none; }
+  .mobile-menu { max-height: min(65vh, 560px); overflow-y: auto; }
+}
+
+/* Tablets, foldable inner screens, narrow laptop split windows. */
+@media (min-width: 681px) and (max-width: 1024px) {
+  .privacy-layout { grid-template-columns: minmax(150px, 190px) minmax(0, 1fr); gap: clamp(18px, 3vw, 32px); }
+  .privacy-main { padding-inline: clamp(20px, 3vw, 34px); }
+  .privacy-body h2 { font-size: clamp(24px, 2.9vw, 28px); }
+  .privacy-body p, .privacy-body li { font-size: 16px; }
+  .social-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stream-layout { gap: 28px; }
+}
+
+/* Phone and compact tablet layouts. */
+@media (max-width: 760px) {
+  :root {
+    --page-gutter: max(16px, 4.5vw, env(safe-area-inset-left), env(safe-area-inset-right));
+    scroll-padding-top: 80px;
+  }
+  .site-header {
+    width: calc(100% - max(14px, env(safe-area-inset-left)) - max(14px, env(safe-area-inset-right)));
+  }
+  .mobile-menu { max-height: min(65dvh, 520px); overscroll-behavior-y: contain; }
+  .section-wrap { max-width: 100%; }
+  .site-footer { gap: 16px; }
+  .footer-links { align-items: flex-start; gap: 4px 16px; }
+  .footer-links a { min-height: 44px; }
+  .hero, .feed-hero, .stream-column { min-width: 0; }
+  .stream-tools .filter-list { max-width: 100%; }
+  .feed-tools .filter-list { max-width: 100%; flex-wrap: wrap; }
+  .privacy-main {
+    width: 100%;
+    max-width: 100%;
+    margin: 16px auto 60px;
+    padding-inline: max(18px, 4.5vw, env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+  .privacy-hero { padding-block: 24px 28px; }
+  .privacy-hero h1 { font-size: clamp(36px, 8.6vw, 52px); letter-spacing: -.04em; }
+  .privacy-layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; margin-top: 24px; }
+  .privacy-toc {
+    position: static;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    max-width: 100%;
+    align-items: center;
+    gap: 9px;
+    padding: 0 2px 14px;
+    border-bottom: 1px solid var(--line);
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .privacy-toc a {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    min-height: 44px;
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface-solid);
+    font-size: 13px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+  .privacy-body section { scroll-margin-top: 24px; margin-bottom: 36px; }
+  .privacy-body h2 { font-size: clamp(23px, 6vw, 28px); }
+  .privacy-body h3 { font-size: clamp(18px, 4.8vw, 20px); }
+  .privacy-body p, .privacy-body li { font-size: 15.5px; line-height: 1.75; }
+  .privacy-table th, .privacy-table td { padding: 13px 14px; }
+  .privacy-main footer { align-items: flex-start; }
+}
+
+/* Compact phones / Galaxy Fold cover display / small split-screen panes.
+   The shared feed preview and social links must not keep desktop columns. */
+@media (max-width: 560px) {
+  .feed-preview-grid .feed-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    grid-template-columns: none;
+  }
+  .feed-preview-grid .feed-art { min-height: clamp(126px, 35vw, 180px); }
+  .feed-preview-grid .feed-card-copy { padding: 16px; }
+  .feed-peek-viewport { max-height: 760px; }
+  .stream-card-top .preview-tag { max-width: 32%; text-align: center; white-space: normal; }
+  .privacy-nav { gap: 2px 14px; }
+  .privacy-nav a { min-height: 44px; font-size: 13px; }
+  .privacy-main footer { display: grid; justify-items: start; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .social-grid { grid-template-columns: minmax(0, 1fr); }
+  .social-tile { min-height: 72px; padding: 12px 15px; gap: 12px; }
+  .social-tile .social-monogram { flex: 0 0 44px; width: 44px; height: 44px; }
+  .social-arrow { display: block; margin-left: auto; }
+  .destination-featured { min-height: 295px; }
+  .destination-featured .destination-top { padding-bottom: 28px; }
+  .destination-card { padding: 19px; }
+  .hero h1 { overflow-wrap: normal; }
+  .stream-card-footer { flex-wrap: wrap; }
+  .privacy-body p, .privacy-body li { font-size: 15px; }
+  .privacy-callout { padding: 16px; }
+}
+
+/* Tiny 280-359px cover screens and narrow browser panes. */
+@media (max-width: 359px) {
+  :root { --page-gutter: max(12px, env(safe-area-inset-left), env(safe-area-inset-right)); }
+  .brand-name { font-size: 13px; }
+  .nav-shell { gap: 6px; padding-inline: 8px; }
+  .nav-actions { gap: 5px; }
+  .icon-button { width: 42px; height: 42px; }
+  .hero h1 { font-size: clamp(36px, 11vw, 42px); }
+  .feed-hero h1 { font-size: clamp(34px, 11vw, 42px); }
+  .destination-card h3 { font-size: clamp(23px, 7vw, 28px); }
+  .privacy-main { padding-inline: max(12px, env(safe-area-inset-left), env(safe-area-inset-right)); }
+  .privacy-hero h1 { font-size: 35px; }
+  .privacy-body h2 { font-size: 22px; }
+  .privacy-toc a { font-size: 12px; }
+}
+
+/* Mobile landscape: preserve readable content without a huge sticky header. */
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 900px) {
+  .site-header { position: relative; top: 0; }
+  .mobile-menu { max-height: 60vh; }
+  .hero { min-height: 0; padding-block: 28px; }
+  .hero-visual { min-height: 220px; }
+  .privacy-main { margin-top: 14px; }
+  .privacy-hero { padding-block: 16px; }
+  .privacy-toc { position: static; max-height: none; }
+}
+
+/* Fold-aware enhancement on browsers that expose multiple viewport segments. */
+@media (horizontal-viewport-segments: 2) {
+  .privacy-layout, .destination-grid, .stream-layout { grid-template-columns: minmax(0, 1fr); }
+  .privacy-toc { position: static; }
+}
+
+/* Large desktop and living-room displays. Scale the layout, not merely whitespace. */
+@media (min-width: 1800px) {
+  :root { --page-width: min(86vw, 1540px); --page-gutter: clamp(50px, 4vw, 90px); }
+  body { font-size: 17px; }
+  .site-header { width: min(var(--page-width), calc(100% - 44px)); }
+  .desktop-nav a { font-size: 16px; }
+  .brand-name { font-size: 18px; }
+  .hero h1 { font-size: clamp(80px, 5.4vw, 110px); }
+  .hero-lede { font-size: 19px; }
+  .section-intro, .hub-heading > p, .destination-card p { font-size: 18px; }
+  .button { font-size: 15px; }
+  .privacy-main { width: min(83vw, 1320px); max-width: 1320px; }
+  .privacy-layout { grid-template-columns: 235px minmax(0,1fr); gap: 56px; }
+  .privacy-hero h1 { font-size: clamp(68px, 4.5vw, 88px); }
+  .privacy-body p, .privacy-body li { font-size: 19px; }
+  .privacy-body h2 { font-size: 34px; }
+  .privacy-body h3 { font-size: 24px; }
+  .privacy-toc a { font-size: 17px; }
+  .privacy-table { font-size: 17px; }
+  .privacy-table th, .privacy-table td { padding: 20px; }
+  .privacy-nav a, .privacy-main footer a { font-size: 17px; }
+}
+
+/* 4K screens often have very high CSS-pixel widths; cap text measures for reading. */
+@media (min-width: 2560px) {
+  :root { --page-width: min(82vw, 1840px); }
+  .privacy-main { width: min(78vw, 1500px); max-width: 1500px; }
+  .privacy-body p, .privacy-body li { font-size: 21px; line-height: 1.85; }
+  .privacy-table { font-size: 19px; }
+  .footer-links a { font-size: 16px; }
+}
+
+/* Make small touch targets comfortable without affecting mouse-driven desktops. */
+@media (pointer: coarse) {
+  :where(.filter-chip, .copy-button, .privacy-toc a, .privacy-nav a,
+    .site-footer a, .stream-more-row button) { min-height: 44px; }
+  .privacy-toc a { padding-inline: 12px; }
+}
+
+/* Accessibility and print support. */
+@media (prefers-contrast: more) {
+  .privacy-toc a, .privacy-callout, .privacy-table-wrap, .social-tile {
+    border-color: var(--ink);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .privacy-toc { scroll-behavior: auto; scroll-snap-type: none; }
+}
+@media print {
+  .site-header, .privacy-toc, .mobile-menu, .toast { display: none !important; }
+  .privacy-main { width: 100%; max-width: none; margin: 0; padding: 0; }
+  .privacy-layout { display: block; }
+  .privacy-table-wrap { overflow: visible; }
+  .privacy-table { min-width: 0; font-size: 10px; }
+  .privacy-table th, .privacy-table td { padding: 6px; min-width: 0; }
+  .privacy-body section { break-inside: avoid-page; }
+}
