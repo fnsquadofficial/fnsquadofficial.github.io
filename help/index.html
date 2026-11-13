@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f2f2f2" id="fn-theme-color">
-<script>(()=>{const r=document.documentElement;let s=null;try{s=localStorage.getItem('fn-theme')}catch(_){}const dark=s==='dark'||(s!=='light'&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=dark?'dark':'light';document.getElementById('fn-theme-color')?.setAttribute('content',dark?'#000000':'#f2f2f2')})();</script>
+  <meta name="color-scheme" content="light dark">
+<script>(()=>{const r=document.documentElement;let s=null;try{s=localStorage.getItem('fn-theme')}catch(_){}const dark=s==='dark'||(s!=='light'&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=dark?'dark':'light';r.style.colorScheme=dark?'dark':'light';r.style.backgroundColor=dark?'#000000':'#f2f2f2';document.getElementById('fn-theme-color')?.setAttribute('content',dark?'#000000':'#f2f2f2')})();</script>
 <title>Help Centre | FN Squad</title>
 <meta name="description" content="Find official FN Squad support information: WhatsApp, Discord, FreakyNews, FN SMP, privacy, reporting and common questions.">
 <meta property="og:type" content="website">
@@ -21,7 +22,7 @@
 <link rel="stylesheet" href="/responsive.css?v=20261113">
 <link rel="stylesheet" href="/creator-pages.css?v=20261113">
 <script src="/site-config.js"></script>
-<script src="/app.js" defer></script>
+<script src="/app.js?v=20261114-systembars" defer></script>
 </head>
 <body class="creator-page creator-page--help">
 <a class="skip-link" href="#main">Skip to content</a>
