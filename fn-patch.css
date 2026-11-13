@@ -1,0 +1,78 @@
+/* FN Squad self-contained icon + editorial patch (13 Nov 2026).
+   Load after /styles.css. Does not fetch Font Awesome or other icon CDNs. */
+
+:root { --fn-line: var(--line, rgba(0,0,0,.12)); --fn-card: var(--surface-solid, #fff); --fn-muted: var(--muted, #555); --fn-r: 20px; }
+:root[data-theme="dark"] { --fn-line: var(--line, rgba(255,255,255,.12)); --fn-card: var(--surface-solid, #0e0e0e); --fn-muted: var(--muted, #aaa); }
+
+/* Size limits for optional snippet icons */
+.fn-card :is(svg, img), .fn-social :is(svg, img) { max-width: 3rem; max-height: 3rem; }
+
+/* Brand tile: glyph in the brand colour, tinted chip behind it */
+.fn-brand { display: inline-grid; place-items: center; flex: none; width: 3rem; height: 3rem; border-radius: 14px;
+  font-size: 1.5rem; line-height: 1; color: var(--b, currentColor);
+  background: color-mix(in srgb, var(--b, currentColor) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--b, currentColor) 30%, transparent); transition: box-shadow .25s; }
+.fn-brand--lg { width: 4rem; height: 4rem; font-size: 2rem; border-radius: 18px; }
+
+/* Official brand colours (GitHub, X, Threads inherit text colour so they work in light and dark) */
+.fn-wa { --b: #25D366; } .fn-dc { --b: #5865F2; } .fn-yt { --b: #FF0000; } .fn-fb { --b: #1877F2; }
+.fn-sp { --b: #1DB954; } .fn-ig { --b: #E4405F; } .fn-tt { --b: #FE2C55; }
+.fn-brand .fn-logo { display:block; width:1.5rem; height:1.5rem; max-width:100%; max-height:100%; fill:currentColor; stroke:none; }
+.fn-brand--lg .fn-logo { width:2rem; height:2rem; }
+.fn-inline-icon { display:inline-block; width:1em; height:1em; vertical-align:-.12em; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* Community cards */
+.fn-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.fn-card { display: flex; flex-direction: column; gap: .9rem; padding: 1.4rem; color: inherit; text-decoration: none;
+  border: 1px solid var(--fn-line); border-radius: var(--fn-r); background: var(--fn-card); transition: border-color .25s; }
+.fn-card:hover, .fn-card:focus-visible { border-color: color-mix(in srgb, var(--b, #888) 55%, transparent); }
+.fn-card:hover .fn-brand, .fn-card:focus-visible .fn-brand { box-shadow: 0 0 28px color-mix(in srgb, var(--b, #888) 40%, transparent); }
+.fn-card:focus-visible, .fn-social a:focus-visible { outline: 2px solid var(--b, currentColor); outline-offset: 3px; }
+.fn-card h3 { margin: 0; font-size: 1.2rem; }
+.fn-card p { margin: 0; color: var(--fn-muted); font-size: .95rem; line-height: 1.55; max-width: 60ch; }
+.fn-meta { display: flex; flex-wrap: wrap; gap: .4rem; }
+.fn-chip { padding: .2rem .6rem; border: 1px solid var(--fn-line); border-radius: 99px; font-size: .78rem; color: var(--fn-muted); }
+.fn-go { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+
+/* Find us everywhere */
+.fn-social { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.fn-social a { display: flex; align-items: center; gap: .85rem; padding: .85rem; color: inherit; text-decoration: none;
+  border: 1px solid var(--fn-line); border-radius: 16px; background: var(--fn-card); transition: border-color .25s; }
+.fn-social a:hover { border-color: color-mix(in srgb, var(--b, #888) 55%, transparent); }
+.fn-social a:hover .fn-brand { box-shadow: 0 0 24px color-mix(in srgb, var(--b, #888) 40%, transparent); }
+.fn-social strong { display: block; } .fn-social small { color: var(--fn-muted); }
+
+/* FreakyNews labels from the handbook (Confirmed / Reported / Rumour / Opinion) */
+.fn-label { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .7rem; border-radius: 99px; font-size: .85rem; font-weight: 700;
+  color: var(--fn-label-ink); background: rgba(var(--fn-label-rgb), .10); border: 1px solid rgba(var(--fn-label-rgb), .30); }
+.fn-ok { --fn-label-ink:#065b38; --fn-label-rgb:6,91,56; } .fn-rep { --fn-label-ink:#144b94; --fn-label-rgb:20,75,148; } .fn-rum { --fn-label-ink:#765000; --fn-label-rgb:118,80,0; } .fn-op { --fn-label-ink:#673589; --fn-label-rgb:103,53,137; }
+:root[data-theme="dark"] .fn-ok { --fn-label-ink:#75e9ad; --fn-label-rgb:117,233,173; }
+:root[data-theme="dark"] .fn-rep { --fn-label-ink:#9bc5ff; --fn-label-rgb:155,197,255; }
+:root[data-theme="dark"] .fn-rum { --fn-label-ink:#ffdc83; --fn-label-rgb:255,220,131; }
+:root[data-theme="dark"] .fn-op { --fn-label-ink:#e0b3ff; --fn-label-rgb:224,179,255; }
+.fn-legend { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin: 0 0 1rem; padding: 0; list-style: none; }
+.fn-legend li { display: flex; flex-direction: column; gap: .4rem; padding: 1rem; border: 1px solid var(--fn-line); border-radius: 16px; background: var(--fn-card); font-size: .92rem; color: var(--fn-muted); }
+.fn-legend .fn-label { align-self: flex-start; }
+.fn-sample { border-style: dashed; }
+.fn-disclaimer { max-width: 62ch; font-size: .8rem; line-height: 1.55; color: var(--fn-muted); }
+
+@media (prefers-reduced-motion: reduce) { .fn-card, .fn-brand, .fn-social a { transition: none; } }
+/* Enhancements for existing homepage icons. Existing data-connect and layouts stay intact. */
+.destination-card .destination-top .platform-logo { display:block; flex:0 0 2.75rem; width:2.75rem; height:2.75rem; box-sizing:border-box; padding:.65rem; border-radius:12px; background:rgba(37,211,102,.12); color:#087d43; fill:currentColor; stroke:none; }
+:root[data-theme="dark"] .destination-card .destination-top .platform-logo { color:#4ce593; background:rgba(37,211,102,.15); }
+.social-tile .social-monogram { flex:0 0 2.75rem; width:2.75rem; height:2.75rem; border:1px solid rgba(128,128,128,.18); }
+.social-tile .social-monogram .platform-logo { display:block; width:1.35rem; height:1.35rem; flex:none; fill:currentColor; stroke:none; }
+.social-tile[href*="instagram.com"] .social-monogram { color:#bf286c; background:rgba(228,64,95,.1); }
+.social-tile[href*="youtube.com"] .social-monogram { color:#cb1010; background:rgba(255,0,0,.09); }
+.social-tile[href*="facebook.com"] .social-monogram { color:#1257a5; background:rgba(24,119,242,.09); }
+.social-tile[href*="spotify.com"] .social-monogram { color:#0b7636; background:rgba(29,185,84,.1); }
+.social-tile[href*="tiktok.com"] .social-monogram { color:#ba2547; background:rgba(254,44,85,.1); }
+:root[data-theme="dark"] .social-tile[href*="instagram.com"] .social-monogram { color:#ff83b5; }
+:root[data-theme="dark"] .social-tile[href*="youtube.com"] .social-monogram { color:#ff8080; }
+:root[data-theme="dark"] .social-tile[href*="facebook.com"] .social-monogram { color:#8bbdff; }
+:root[data-theme="dark"] .social-tile[href*="spotify.com"] .social-monogram { color:#60e993; }
+:root[data-theme="dark"] .social-tile[href*="tiktok.com"] .social-monogram { color:#ff86a4; }
+.fn-editorial-note { margin-block:1.5rem 2.25rem; }
+.fn-editorial-note h2 { font-size:clamp(1.25rem,2.7vw,1.75rem); margin:0 0 .5rem; }
+.fn-editorial-note > p { max-width:75ch; color:var(--fn-muted); margin:0 0 1rem; }
+.fn-disclaimer a { text-decoration:underline; text-underline-offset:.15em; }
