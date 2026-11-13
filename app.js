@@ -21,31 +21,25 @@
     try { return window.localStorage.getItem('fn-theme'); } catch (_) { return null; }
   })();
   if (savedTheme === 'dark' || savedTheme === 'light') root.dataset.theme = savedTheme;
-  // Keep the browser/system bar colours, canvas and color-scheme in sync with the ACTIVE theme
-  // (not the phone's setting), including after manual toggles and back/forward cache restores.
+  // Keep page canvas, theme metadata and browser chrome aligned with the selected
+  // site theme. Android system navigation/gesture bars are owned by the browser/OS;
+  // a PWA may keep its install-time bar colour even after these values change.
   const BAR = { light: '#f2f2f2', dark: '#000000' };
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const schemeMeta = document.querySelector('meta[name="color-scheme"]');
+
   const updateSystemThemeColor = () => {
     const mode = root.dataset.theme === 'dark' ? 'dark' : 'light';
-    // A fresh meta element is picked up more reliably than editing one in place on some Android builds.
-    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.remove());
-    const bar = document.createElement('meta');
-    bar.name = 'theme-color';
-    bar.id = 'fn-theme-color';
-    bar.content = BAR[mode];
-    document.head.appendChild(bar);
-    const scheme = document.querySelector('meta[name="color-scheme"]');
-    if (scheme) scheme.content = mode;
+    const color = BAR[mode];
+    // Update the EXISTING element; don't remove/recreate it on each toggle.
+    // Browsers can miss a rapid dynamic meta replacement, especially in PWAs.
+    if (themeMeta) themeMeta.setAttribute('content', color);
+    if (schemeMeta) schemeMeta.setAttribute('content', mode);
     root.style.colorScheme = mode;
-    root.style.backgroundColor = BAR[mode]; // canvas under the system bars changes instantly
+    root.style.backgroundColor = color;
+    body.style.backgroundColor = color;
   };
-  window.addEventListener('pageshow', updateSystemThemeColor);
-  try {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-      if (savedTheme === 'dark' || savedTheme === 'light') return; // an explicit choice wins
-      root.dataset.theme = event.matches ? 'dark' : 'light';
-      updateThemeControl();
-    });
-  } catch (_) { /* older browsers: no live system-theme following */ }
+
   const updateThemeControl = () => {
     const isDark = root.dataset.theme === 'dark';
     if (themeButton) {
@@ -54,13 +48,40 @@
     }
     updateSystemThemeColor();
   };
+
+  const followSystemTheme = () => {
+    if (savedTheme === 'dark' || savedTheme === 'light') return;
+    root.dataset.theme = window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    updateThemeControl();
+  };
+
+  try {
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (typeof systemTheme.addEventListener === 'function') {
+      systemTheme.addEventListener('change', followSystemTheme);
+    } else if (typeof systemTheme.addListener === 'function') {
+      systemTheme.addListener(followSystemTheme);
+    }
+  } catch (_) { /* Old browsers may not expose media-query listeners. */ }
+
+  // Restore the selected colour when returning from the back-forward cache or
+  // the home screen; don't reset an explicitly chosen theme.
+  window.addEventListener('pageshow', () => {
+    if (savedTheme !== 'dark' && savedTheme !== 'light') followSystemTheme();
+    else updateThemeControl();
+  });
+  window.addEventListener('visibilitychange', () => {
+    if (!document.hidden) updateSystemThemeColor();
+  });
+
   updateThemeControl();
   themeButton?.addEventListener('click', () => {
-    const currentDark = root.dataset.theme === 'dark';
-    const next = currentDark ? 'light' : 'dark';
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     savedTheme = next;
-    try { window.localStorage.setItem('fn-theme', next); } catch (_) { /* Private browsing: theme still works for this page. */ }
+    try { window.localStorage.setItem('fn-theme', next); }
+    catch (_) { /* Private browsing: keep the theme for this session. */ }
     updateThemeControl();
   });
 
