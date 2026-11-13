@@ -32,7 +32,7 @@ FN Squad does not sell personal data. It may need to disclose limited data to re
 
 People may ask about data held by FN Squad, correct inaccurate information, request deletion and enquire about retention and disclosures. Depending on the law, additional rights can include objection, restriction, data portability and consent withdrawal. A request may be limited where evidence must be retained for lawful safety, ongoing investigation or legal reasons.
 
-**Current contact routes:** email FN Squad at **fnsquadofficial@gmail.com** (https://fnsquadofficial.github.io/contact/) or privately message an FN Squad Admin or Moderator through the official Discord community: https://discord.com/invite/ECAwrJNmGm. Ask for the team member handling privacy enquiries. Do not post private evidence to public chats, GitHub issues or social comments.
+**Current contact routes:** email FN Squad at **fnsquadofficial@gmail.com** (https://fnsquadofficial.github.io/contact/) or privately message an FN Squad Admin or Moderator through the official Discord community: https://discord.gg/ymyZtpTqdr. Ask for the team member handling privacy enquiries. Do not post private evidence to public chats, GitHub issues or social comments.
 
 **Remaining governance items:** the official inbox is public and the four-person creator leadership is listed at https://fnsquadofficial.github.io/about/. A formally designated privacy officer, the operating entity's legal status, confirmed request-handling controls and an implemented retention schedule have not yet been established in this public review. The published leadership titles are internal community roles, not evidence of incorporation.
 
