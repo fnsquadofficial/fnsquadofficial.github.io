@@ -38,3 +38,15 @@
  .feed-page .stream-state{white-space:normal;line-height:1.4}
 }
 @media(prefers-reduced-motion:reduce){.feed-page .fn-read-source{transition:none}}
+
+/* Homepage FreakyNews feature: replace preview labels with sourced headlines. */
+.freaky-section .feed-preview-grid .feed-meta .preview-tag{color:var(--ink);border-color:var(--line-strong);font-size:.69rem;font-weight:830}
+.freaky-section .feed-preview-grid .feed-meta>span:first-child{font-size:.72rem;font-variant-numeric:tabular-nums}
+.freaky-section .feed-preview-grid .feed-card-copy>p{color:var(--muted);line-height:1.72;margin:11px 0}
+.freaky-section .feed-preview-grid .fn-home-source{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;min-height:44px;margin:0 0 15px;padding:8px 12px;border:1px solid var(--line-strong);border-radius:10px;color:var(--ink);font-size:.79rem;font-weight:770;text-decoration:none;text-underline-offset:3px;line-height:1.4;transition:background .18s ease,border-color .18s ease}
+.freaky-section .feed-preview-grid .fn-home-source:hover,.freaky-section .feed-preview-grid .fn-home-source:focus-visible{background:var(--bg-alt);border-color:var(--ink);text-decoration:underline}
+.freaky-section .feed-preview-grid .feed-card h3{line-height:1.22;letter-spacing:-.035em}
+.freaky-section .feed-preview-grid .feed-art .art-headline{overflow-wrap:anywhere;line-height:.94}
+.freaky-section .feed-disclaimer p{line-height:1.75}
+@media(max-width:760px){.freaky-section .feed-tools .filter-list{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;flex-wrap:nowrap;padding-bottom:9px}.freaky-section .feed-tools .filter-chip{white-space:nowrap;flex:0 0 auto}.freaky-section .feed-preview-grid .fn-home-source{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.freaky-section .feed-preview-grid .fn-home-source{transition:none}}
