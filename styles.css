@@ -824,3 +824,17 @@ h1,h2,.brand-name{font-weight:800;letter-spacing:-.035em}
 .privacy-table tr:last-child td{border-bottom:0}
 .privacy-date{font-size:13px;color:var(--muted)}
 @media(max-width:760px){.privacy-layout{grid-template-columns:1fr;gap:24px}.privacy-toc{position:static;display:flex;flex-wrap:wrap;gap:6px 18px;border-bottom:1px solid var(--line);padding-bottom:20px}.privacy-main{padding:0 20px;margin-top:16px}}
+
+/* Public legal, editorial and policy pages */
+.fn-legal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem;margin-block:1.2rem 1.8rem}
+.fn-legal-link{display:flex;flex-direction:column;gap:.55rem;min-width:0;padding:1.2rem 1.35rem;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface-solid);text-decoration:none!important;transition:border-color .18s ease,background-color .18s ease}
+.fn-legal-link:hover,.fn-legal-link:focus-visible{border-color:var(--ink);background:var(--bg-alt)}
+.fn-legal-link strong{font-size:1.05rem;line-height:1.4}
+.fn-legal-link span{font-size:.94rem;line-height:1.6;color:var(--muted)}
+.privacy-legal-footer{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;padding-block:2rem;border-top:1px solid var(--line)}
+.privacy-legal-footer>a{text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
+.privacy-legal-footer p{width:100%;margin:0}
+.privacy-body section[lang="ms"]{overflow-wrap:anywhere}
+.privacy-body section[lang="ms"] h3{scroll-margin-top:2rem}
+@media(max-width:380px){.privacy-main{padding-inline:16px}.privacy-hero h1{overflow-wrap:break-word}.fn-legal-link{padding:1rem}}
+@media(prefers-reduced-motion:reduce){.fn-legal-link{transition:none}}
