@@ -45,7 +45,7 @@ window.FN_CONFIG = {
 ],
 
   // Public Discord invite for FN Squad / FN SMP.
-  discordInviteUrl: "https://discord.com/invite/ECAwrJNmGm",
+  discordInviteUrl: "https://discord.gg/ymyZtpTqdr",
 
   // Minecraft values shown on the FN SMP section.
   minecraftServerAddress: "",
