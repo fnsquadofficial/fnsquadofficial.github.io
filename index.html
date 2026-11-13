@@ -13,6 +13,8 @@
       try { saved = localStorage.getItem('fn-theme'); } catch (_) {}
       const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
       root.dataset.theme = dark ? 'dark' : 'light';
+      root.style.colorScheme = dark ? 'dark' : 'light';
+      root.style.backgroundColor = dark ? '#000000' : '#f2f2f2';
       const meta = document.getElementById('fn-theme-color');
       if (meta) meta.setAttribute('content', dark ? '#000000' : '#f2f2f2');
     })();
@@ -33,7 +35,7 @@
   <link rel="stylesheet" href="/freakynews/news-updates.css?v=20261114">
   <title>FN Squad — News, memes & the next adventure</title>
   <script src="/site-config.js"></script>
-  <script src="/app.js" defer></script>
+  <script src="/app.js?v=20261114-systembars" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
