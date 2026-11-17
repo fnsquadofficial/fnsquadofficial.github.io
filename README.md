@@ -1,4 +1,10 @@
-# FN Squad website (v6)
+# FN Squad — Previous Website Archive
+
+> **Superseded by FN Squad V2.** All four leaders agreed to use [V2](https://fnsquadofficial.github.io/v2/) as the sole official website, confirmed on 17 November 2026.
+>
+> **Current source:** https://github.com/fnsquadofficial/v2
+>
+> This repository preserves the previous website. Its news, policies and server details may be outdated. Make current website updates in V2. The implementation notes below describe this historical version.
 
 Static site for GitHub Pages. No build step, no third-party scripts.
 
